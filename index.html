@@ -8,14 +8,27 @@
         <style type="text/css"> 
             @media (max-width:1920px){
                 * {box-sizing: border-box;}
-                body {background-color: rgb(19, 123, 155);}
+                body {color: white;background-color: rgb(19, 123, 155);}
                 h1 {margin-top: 101px;text-align: center;}
                 h2 {margin-top: 20px;text-align: center;}
-                .container {margin-top: 104px;margin-left: 0px;margin-right: 0px;display: flex;text-align: center;justify-content: center;}
+                .container {margin:auto;margin-top: 104px;display: flex;text-align: center;justify-content: center;}
                 .six_boxes {width: 15%;height: 230px;margin: 1%;}
                 h3 {text-align: center;margin-top: 58px;}
-                .container_for_keys {text-align: center;justify-content: center;}
-                .three_keys {width: 92px;width: 104px;cursor: pointer;}
+                .container_for_keys {
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                }
+                .three_individual_container {
+                    width: 92px;
+                }
+                .three_keys {width: 92px;height: 104px;margin: 30px;cursor: pointer;}
+                .doors_for_third_key {}
+                .hold {border: solid 5px #ccc;}
+                .hovered {
+                    background: #f4f4f4;
+                    border-style: dashed;
+                }
             }
             
             /*=========================================================================================================================*/
@@ -31,7 +44,7 @@
         <h1>科學與創世紀</h1>
         <h2>跨越原本的思維觀點，開啟生命的對話空間</h3>
         <div class="container" id="container">
-            <img class="six_boxes" src="./static/door1.png">
+            <img class="six_boxes doors_for_third_key" src="./static/door1.png">
             <img class="six_boxes" src="./static/door2.png">
             <img class="six_boxes" src="./static/door3.png">
             <img class="six_boxes" src="./static/door4.png">
@@ -40,11 +53,65 @@
         </div>
         <h3>請任選一支鑰匙開啟</h3>   
         <div class="container_for_keys">
-            <img class="three_keys" src="./static/key1.png">
-            <img class="three_keys" src="./static/key2.png">
-            <img class="three_keys" src="./static/key3.png">
+            <div>
+                <img class="three_keys" src="./static/key1.png" draggable="true">
+                <div>全人</div>
+            </div>
+            <div>
+                <img class="three_keys" src="./static/key2.png" draggable="true">
+                <div>染色體數</div>
+            </div>
+            <div class="three_individual_container">
+                <img class="three_keys third_key" src="./static/key3.png" draggable="true">
+                <div>時間</div>
+            </div>
 
         </div>  
+        <script type="text/javascript">
+            const third_key = document.querySelector(".third_key");
+            const doors_for_third_key = document.querySelectorAll(".doors_for_third_key")
+
+            // third_key listeners
+            third_key.addEventListener("dragstart", drag_start);
+            third_key.addEventListener("dragend", drag_end);
+
+            // Loop through door boxes and add listeners
+            for (const door of doors_for_third_key){
+                door.addEventListener("dragover", drag_over);
+                door.addEventListener("dragenter", drag_enter);
+                door.addEventListener("dragleave", drag_leave);
+                door.addEventListener("drop", drag_drop);
+            }
+
+            // Drag Functions
+            function drag_start() {
+                setTimeout(() => (this.className = 'invisible'), 0);
+                console.log(this.class)
+            }
+
+            function drag_end() {
+                this.className = 'three_keys';
+            }
+
+            function drag_over(e) {
+                e.preventDefault();
+            }
+
+            function drag_enter(e) {
+                e.preventDefault();
+                this.className += ' hovered';
+            }
+
+            function drag_leave() {
+                this.className = 'six_boxes';
+            }
+
+            function drag_drop() {
+                this.className = 'six_boxes';
+                this.src = "./static/key3.png";
+                document.location = "./theBeginningOfUniverse.html"
+            }
+        </script>
     </body>
 
     
