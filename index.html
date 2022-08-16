@@ -39,7 +39,7 @@
             @media (max-width:600px){
                 h1 {margin-top: 73px;text-align: center;}
                 .container {width: 100%; margin-top: 37px;text-align: center;justify-content: center;flex-wrap:wrap;}
-                .six_boxes {width: 20%;height: 142px;}
+                .six_boxes {width: 30%;height: 142px;}
                 h3 {text-align: center;margin-top: 58px;}
             }
         </style>
@@ -48,12 +48,12 @@
         <h1>科學與創世紀</h1>
         <h2>跨越原本的思維觀點，開啟生命的對話空間</h3>
         <div class="container" id="container">
-            <img class="six_boxes door_theBeginningOfUniverse doors" src="./static/door1.png">
-            <img class="six_boxes door_biologicalGenetics doors" src="./static/door2.png">
-            <img class="six_boxes" src="./static/door3.png">
-            <img class="six_boxes" src="./static/door4.png">
-            <img class="six_boxes" src="./static/door5.png">
-            <img class="six_boxes" src="./static/door6.png">
+            <img class="six_boxes doors door_beginning_universe" src="./static/door1.png">
+            <img class="six_boxes doors door_biological_genetics" src="./static/door2.png">
+            <img class="six_boxes doors door_people_monkey" src="./static/door3.png">
+            <img class="six_boxes doors door_fossil" src="./static/door4.png">
+            <img class="six_boxes doors door_evolution_theory" src="./static/door5.png">
+            <img class="six_boxes doors door_ape" src="./static/door6.png">
         </div>
         <h3>請任選一支鑰匙開啟</h3>   
         <div class="container_for_keys">
@@ -93,30 +93,9 @@
 
             // Drag Functions
             function drag_start1() {
+                document.body.classList.add("hide_overflow_y");
+                key_situation = 1;
                 setTimeout(() => (this.className = 'invisible'), 0);
-            }
-
-            function drag_end() {
-                this.className = 'three_keys';
-            }
-
-            function drag_over(e) {
-                e.preventDefault();
-            }
-
-            function drag_enter(e) {
-                e.preventDefault();
-                this.className += ' hovered';
-            }
-
-            function drag_leave() {
-                this.className = 'six_boxes';
-            }
-
-            function drag_drop() {
-                this.className = 'six_boxes';
-                this.src = "./static/key2.png";
-                document.location = "./BiologicalGenetics.html"
             }
             
             // 第二把鑰匙
@@ -138,32 +117,8 @@
             // Drag Functions
             function drag_start2() {
                 document.body.classList.add("hide_overflow_y");
-                key_situation = 2
+                key_situation = 2;
                 setTimeout(() => (this.className = 'invisible'), 0);
-                console.log(this.class)
-            }
-
-            function drag_end() {
-                this.className = 'three_keys';
-            }
-
-            function drag_over(e) {
-                e.preventDefault();
-            }
-
-            function drag_enter(e) {
-                e.preventDefault();
-                this.className += ' hovered';
-            }
-
-            function drag_leave() {
-                this.className = 'six_boxes';
-            }
-
-            function drag_drop() {
-                this.className = 'six_boxes';
-                this.src = "./static/key2.png";
-                document.location = "./BiologicalGenetics.html"
             }
             
             // 第三把鑰匙
@@ -203,20 +158,43 @@
             }
 
             function drag_leave() {
-                this.className = 'six_boxes';
+                this.className = this.className.replace("hovered", "");
             }
 
             function drag_drop() {
-                console.log(key_situation)
-                console.log(this.className);
-                // 第一扇門通過
-                if(key_situation === 3 && this.className.includes("door_theBeginningOfUniverse")){
-                    this.src = "./static/key3.png";
-                    document.location = "./theBeginningOfUniverse.html"
+                // 如果沒有通過，移除hovered效果
+                if(this.className.includes("hovered")){
+                    this.className = this.className.replace("hovered", "");
                 }
-                else if(key_situation === 2 && this.className.includes("door_biologicalGenetics")){
+                // 第一扇門通過
+                if(key_situation === 3 && this.className.includes("door_beginning_universe")){
+                    this.src = "./static/key3.png";
+                    document.location = "./beginning_universe.html"
+                }
+                // 第二扇門通過
+                else if(key_situation === 2 && this.className.includes("door_biological_genetics")){
                     this.src = "./static/key2.png";
-                    document.location = "./biologicalGenetics.html"
+                    document.location = "./biological_genetics.html"
+                }
+                // 第三扇門通過
+                else if(key_situation === 1 && this.className.includes("door_people_monkey")){
+                    this.src = "./static/key1.png";
+                    document.location = "./people_monkey.html"
+                }
+                // 第四扇門通過
+                else if(key_situation === 3 && this.className.includes("door_fossil")){
+                    this.src = "./static/key3.png";
+                    document.location = "./fossil.html"
+                }
+                // 第五扇門通過
+                else if(key_situation === 2 && this.className.includes("door_evolution_theory")){
+                    this.src = "./static/key2.png";
+                    document.location = "./evolution_theory.html"
+                }
+                // 第六扇門通過
+                else if(key_situation === 1 && this.className.includes("door_ape")){
+                    this.src = "./static/key1.png";
+                    document.location = "./ape.html"
                 }
             }
         </script>
