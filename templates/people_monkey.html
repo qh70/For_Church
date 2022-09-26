@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <title>人與猿猴</title>
+        <style type="text/css"> 
+            * {box-sizing: border-box;}
+            body {background-color: #666666;}
+            .home_div {background-color: #666666;text-align: end;position: fixed;top: 0;left: 0;right:0;z-index: 2;}
+            .home_icon {width: 48px;height: 47px;margin-top: 10px;margin-right: 30px;cursor: pointer;}
+            h1 {margin-top: 101px;text-align: center;color: white;}
+            h2 {margin-top: 47px;text-align: center;color: white;}
+            .container {display: flex;justify-content: space-evenly;}
+            .two_blocks {
+                width: 465px;height:max-content;
+                margin: 20px;margin-top: 94px;
+                text-align: center;align-items:top;justify-content: center;
+                color: #FFFFFF;background-color: #AACCEC;
+                border-radius: 88px;
+            }
+            
+            .middle_yellow {background-color: #E0E27E;}
+
+            .science_and_bible {display: flex;margin: auto;margin-top: 83px;margin-bottom: 48px;font-size: 48px;font-weight: 400;justify-content: center;}
+            .science_img {width: 50px;height: 66px;margin-right: 20px;}
+            .bible_img {width: 92px;height: 66px;margin-right: 20px;}
+            .how {
+                width: 70%;height: 82px;line-height: 82px;
+                margin: auto;margin-bottom: 60px;
+                font-size: 32px;font-weight: 400;
+                background-color: #3696F0;
+                border-radius: 20px;
+            }
+            /* .switch {display: none;} */
+            .under_two_blocks {
+                display: none;
+                width: 85%;height: 58px;
+                margin: auto;margin-bottom: 0px;margin-bottom: 20px;
+                font-size: 1rem;line-height: 58px;
+                color: #FFFFFF;background-color: #3696F0;
+                border-radius: 20px;
+                z-index: 1;position: relative; /* 為了放在between_blocks_words上面 */
+            }
+
+            .dark_yellow {background-color: #B8BA51;}
+
+            .between_blocks_words{
+                display: none;
+                width: 85%;height: 40px;
+                margin: auto;margin-top: -58px;
+                background-color: #D8EBFE;
+                border-radius: 20px 20px 0px 0px;
+            }
+            .words {
+                display: none;
+                width: 85%;
+                margin: auto;margin-top: 0px;margin-bottom: 20px;
+                border-top: 600px;
+                padding: 15px;
+                text-align: start;
+                color: #000000;background-color: #D8EBFE;
+            }
+
+            .light_yellow {background-color: #FCFDC9;}
+
+            .show {display: block;}
+            .buttom_imgs {display: none;}
+            @media(max-width:600px){
+                .home_div {display: none;}
+                .container {display: block;}
+                .two_blocks {margin: auto;margin-top: 94px;padding: 20px;}
+                .buttom_imgs {display: block;margin-right: 30px;text-align: end;}
+                .home_icon {margin-top: 10px;margin-right: 0px;}
+                .arrow_icon {width: 48px;height: 30px;margin-top: 10px;}
+            }
+        </style>
+    </head>
+
+    <script type="text/javascript">
+        function go_to_index(){
+            document.location = "index.html";
+        }
+
+        function how(){
+            let under_science = document.querySelectorAll("#under_science");
+            let how1 = document.getElementById("how1");
+            how1.style.display = "none";
+            for(let i=0;i<under_science.length;i++){
+                under_science[i].style.display = "block"
+            }
+        }
+        
+        function under_science(number){
+            let blank_words = document.querySelectorAll("#under_science-"+number);
+            for(let j=0;j<blank_words.length;j++)
+            blank_words[j].classList.toggle("show");            
+        }
+        function fun(ob){
+            let obb=ob.parentNode
+        }
+        function how1(obj){
+            obj.style.display="none"
+            let under_bible = document.querySelectorAll("#under_bible");
+            for(let k=0;k<under_bible.length;k++){
+                under_bible[k].style.display="block";
+            }
+        }
+        function under_bible(obj){
+            let childs = obj.parentNode.childNodes;
+            if(childs[3].style.display === "block"){
+                for(m=3;m<childs.length;m=m+2){
+                    childs[m].style.display = "none"
+                }
+            }
+            else{
+                for(n=3;n<childs.length;n=n+2){
+                    childs[n].style.display = "block"
+                }
+            }
+            
+        }
+    </script>
+    <body>
+        <div class="home_div">
+            <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
+        </div>
+        <h1>人類不同於猿</h1>
+        <div class="container">
+            <div class="two_blocks">
+                <div class="science_and_bible">
+                    <img class="science_img" src="../static/sc.png">
+                    科學
+                </div>
+                <div class="how" onclick="how()" id="how1">怎麼說</div>
+                <div class="under_two_blocks" id="under_science"  onclick="under_science(1);fun(this)">人從哪裡來的？</div>
+                <div class="between_blocks_words" id="under_science-1"></div>
+                <div class="words" id="under_science-1">
+                    自古而來，人們對於人從哪裡來感到好奇，各種古老傳說也會講述人的起源。然而，自十九世紀中葉達爾文發表物種原始，他認為所有的物種有共同祖先，引發了人們對於人類的來源有不同的解釋及看法。你認為…這是事實？還是推論呢？    
+                    <br/>
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">誤會多年的插圖！</p>
+                    過去常聽見有人說：「人是猴子(或黑猩猩)變的?」經過了解與回溯後，我們發現「人是猴子(或黑猩猩)變的?」這個說法緣起於多年前一位美國自然插畫家收集各種猿猴及人猿側面圖像而繪製的科普插圖，當其風行於世而造成人們的普遍錯誤理解。坦白說，達爾文不是這樣說的。實際上，他的說法是因爲演化上沒辦法解釋(這個事情)，所以達爾文就提出一個論點說：人跟黑猩猩這麼像，會不會他們有一個共同祖先？
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(2)">人與猿猴的身體比較</div>
+                <div class="between_blocks_words" id="under_science-2"></div>
+                <div class="words" id="under_science-2">
+                    在生物分類學中，人與猿猴因外在結構上相似，因此一同被歸類劃入等靈長目動物中。在黑猩猩、大猩猩、紅毛猩猩、倭黑猩猩、狒狒、獼猴等靈長類動物中，人與黑猩猩最相似，二者的身體骨骼及器官構造類似；黑猩猩能使用簡易工具來進行一些工作，其亦有社會群體組織。此外，黑猩猩體形多毛，四肢修長且可握物，以半直立的方式行走。因此，生物演化學家論述「人跟黑猩猩有共同祖先」，人與黑猩猩大約在六百萬年前「分家」各自演變發展。我們想問：這是真的嗎？
+                    <br/>
+                    曾經，有學者運用不同試驗方法去看不同靈長類動物間的關聯性，在DNA、抗體反應及化石相似性方面，可以看到在DNA方面，人與黑猩猩最為相似，其次為大猩猩、紅毛猩猩及長臂猿。在抗體反應上，人與黑猩猩及大猩猩相似。在化石方面，人則與黑猩猩、大猩猩及紅毛猩猩類似。然而，即使彼此有相似性，不表示他們就係出同源，來自同一個所謂共同祖先。我們可以看到這些動物的染色體數各自不同。
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(3)" style="margin-bottom:60px">人與猿猴的關鍵差異</div>
+                <div class="between_blocks_words" id="under_science-3" style="margin-top: -98px;"></div>
+                <div class="words" id="under_science-3" style="margin-bottom:60px">
+                    人類與黑猩猩的基因定序已於21世紀初完成。生物遺傳學家透過比較人類與黑猩猩的基因序列差異，發現人類獨有的基因DNA：大腦皮層皺摺、腦容量、語言發展、手指功能、消化澱粉與乳糖等相關基因，如圖。
+                    <br/>
+                    人的語言發展基因明顯與黑猩猩、大猩猩、紅毛猩猩及恆河猴、老鼠的基因不一樣。這就是形塑人之所以成為人的關鍵基因之一，進而使人類發展出藝術、科學等社會文明，與黑猩猩等動物迥然有別。其中，基因改變的位置非常重要。如：在影響腦部表現的基因(HAR1)[2]，人類與黑猩猩有18個鹼基差異；而在大多數脊椎動物物種中，此部分差異卻沒有太大，如：黑猩猩與雞只有2個不同。人類腦容量明顯較大且大腦皮層皺褶特別多，因此人的心智思考活動活絡，表現明顯不同遠勝過動物，而這HAR1基因，就是與人類大腦皮層皺褶相關的基因。    
+                    <br/>
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">人與猿猴明確有別—染色體數</p>
+                    細看人與黑猩猩的染色體與基因差異：(1) DNA：30億鹼基對，98.77%相同。(2) 基因：
+                    <br/>
+                    20000~25000個，17%結構差異。(3) 染色體：人46條；黑猩猩48條。
+                    <br/>
+                    即使有許多相似性，然人與猿猴的染色體數卻明顯有別，黑猩猩為48條、人是46條。染色體數不同造成生殖方面的界線與隔絕。在同類動物生殖遺傳時，其DNA基因是可以微調的、變化的。但是，染色體數目對各物種繁衍後代而言，卻是明確不會變的。
+                </div>                    
+            </div>
+            <div class="two_blocks middle_yellow">
+                <div class="science_and_bible">
+                    <img class="bible_img" src="../static/bible.png">
+                    聖經
+                </div>
+                <div class="how dark_yellow" onclick="how1(this)">怎麼說</div>
+                <div class="switch">
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)" style="margin-bottom:60px">人與猿猴有共同祖先嗎？</div>
+                        <div class="between_blocks_words light_yellow" style="margin-top: -98px;"></div>
+                        <div class="words light_yellow" style="margin-bottom:60px">
+                            從全人角度來看，人係身體、靈魂與靈共同組成的。身體含括：骨骼、器官、神經、染色體等；靈魂是指人格、意識、思想、情感與意志等；靈則是與良知與道德、對意義與永恆的追求，進而反映出創造主的形象。
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">人與黑猩猩的差異無從演化</p>
+                            若全面來細看人與黑猩猩的差異。我們可以從靈、魂、體細節中逐一看到差異。(1) 身體方面，雖然構成生命的物質元素相同，骨骼結構雖相似但仍有不同，但染色體數不同，且基因有關鍵差異；染色體數目界限明確，難以跨越。(2) 靈魂方面，人與黑猩猩在靈魂上完全係不同層次。雖說黑猩猩研究專家珍古德觀察黑猩猩群體仍有情感與部分智力展現，然而在智慧、創意與語言為不同層次，難以演化。(3) 靈的方面，人有道德良知與尋求永恆的心志，這是動物間看不到的；唯有人有靈，這無從演化。
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">人是無法用演化解釋的生物</p>
+                            著有「上帝的語言」這書的柯林斯（Francis S. Collins）曾說：「人類是唯一無法以演化去解釋的生物，包括道德律的存在。」
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttom_imgs">
+            <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
+            <br>
+            <img class="arrow_icon" src="../static/arrow.png">
+        </div>
+    </body>
+
+    

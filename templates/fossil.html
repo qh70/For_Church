@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <title>化石</title>
+        <style type="text/css"> 
+            * {box-sizing: border-box;}
+            body {background-color: #666666;}
+            .home_div {background-color: #666666;text-align: end;position: fixed;top: 0;left: 0;right:0;z-index: 2;}
+            .home_icon {width: 48px;height: 47px;margin-top: 10px;margin-right: 30px;cursor: pointer;}
+            h1 {margin-top: 101px;text-align: center;color: white;}
+            h2 {margin-top: 47px;text-align: center;color: white;}
+            .container {display: flex;justify-content: space-evenly;}
+            .two_blocks {
+                width: 465px;height:max-content;
+                margin: 20px;margin-top: 94px;
+                text-align: center;align-items:top;justify-content: center;
+                color: #FFFFFF;background-color: #AACCEC;
+                border-radius: 88px;
+            }
+            
+            .middle_yellow {background-color: #E0E27E;}
+
+            .science_and_bible {display: flex;margin: auto;margin-top: 83px;margin-bottom: 48px;font-size: 48px;font-weight: 400;justify-content: center;}
+            .science_img {width: 50px;height: 66px;margin-right: 20px;}
+            .bible_img {width: 92px;height: 66px;margin-right: 20px;}
+            .how {
+                width: 70%;height: 82px;line-height: 82px;
+                margin: auto;margin-bottom: 60px;
+                font-size: 32px;font-weight: 400;
+                background-color: #3696F0;
+                border-radius: 20px;
+            }
+            /* .switch {display: none;} */
+            .under_two_blocks {
+                display: none;
+                width: 85%;height: 58px;
+                margin: auto;margin-bottom: 0px;margin-bottom: 20px;
+                font-size: 1rem;line-height: 58px;
+                color: #FFFFFF;background-color: #3696F0;
+                border-radius: 20px;
+                z-index: 1;position: relative; /* 為了放在between_blocks_words上面 */
+            }
+
+            .dark_yellow {background-color: #B8BA51;}
+
+            .between_blocks_words{
+                display: none;
+                width: 85%;height: 40px;
+                margin: auto;margin-top: -58px;
+                background-color: #D8EBFE;
+                border-radius: 20px 20px 0px 0px;
+            }
+            .words {
+                display: none;
+                width: 85%;
+                margin: auto;margin-top: 0px;margin-bottom: 20px;
+                border-top: 600px;
+                padding: 15px;
+                text-align: start;
+                color: #000000;background-color: #D8EBFE;
+            }
+
+            .light_yellow {background-color: #FCFDC9;}
+
+            .show {display: block;}
+            .buttom_imgs {display: none;}
+            @media(max-width:600px){
+                .home_div {display: none;}
+                .container {display: block;}
+                .two_blocks {margin: auto;margin-top: 94px;padding: 20px;}
+                .buttom_imgs {display: block;margin-right: 30px;text-align: end;}
+                .home_icon {margin-top: 10px;margin-right: 0px;}
+                .arrow_icon {width: 48px;height: 30px;margin-top: 10px;}
+            }
+        </style>
+    </head>
+
+    <script type="text/javascript">
+        function go_to_index(){
+            document.location = "index.html";
+        }
+
+        function how(){
+            let under_science = document.querySelectorAll("#under_science");
+            let how1 = document.getElementById("how1");
+            how1.style.display = "none";
+            for(let i=0;i<under_science.length;i++){
+                under_science[i].style.display = "block"
+            }
+        }
+        
+        function under_science(number){
+            let blank_words = document.querySelectorAll("#under_science-"+number);
+            for(let j=0;j<blank_words.length;j++)
+            blank_words[j].classList.toggle("show");            
+        }
+        function fun(ob){
+            let obb=ob.parentNode
+        }
+        function how1(obj){
+            console.log(document.querySelector(".switch"))
+            obj.style.display="none"
+            let under_bible = document.querySelectorAll("#under_bible");
+            for(let k=0;k<under_bible.length;k++){
+                under_bible[k].style.display="block";
+            }
+        }
+        function under_bible(obj){
+            let childs = obj.parentNode.childNodes;
+            console.log(childs[1])
+            if(childs[3].style.display === "block"){
+                for(m=3;m<childs.length;m=m+2){
+                    childs[m].style.display = "none"
+                }
+            }
+            else{
+                for(n=3;n<childs.length;n=n+2){
+                    childs[n].style.display = "block"
+                }
+            }
+            
+        }
+    </script>
+    <body>
+        <div class="home_div">
+            <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
+        </div>
+        <h1>化石</h1>
+        <h2>你看過化石嗎？說到化石，你會想到什麼？
+            <br/>
+            化石的年齡真的那麼久嗎？這麼古老的東西裡竟然也有新發現？
+        </h2>
+        <div class="container">
+            <div class="two_blocks">
+                <div class="science_and_bible">
+                    <img class="science_img" src="../static/sc.png">
+                    科學
+                </div>
+                <div class="how" onclick="how()" id="how1">怎麼說</div>
+                <div class="under_two_blocks" id="under_science"  onclick="under_science(1);fun(this)">從古老化石聯想到的問題</div>
+                <div class="between_blocks_words" id="under_science-1"></div>
+                <div class="words" id="under_science-1">
+                    <p style="text-align:left;color: #3696F0">恐龍活在六千多萬年前嗎？</p>
+                    自1822年，在英國曼徹斯特發現第一具恐龍化石後，引發了人們對於這巨大脊椎動物的興趣。科學研究關於恐龍在6500萬年前，已經從地球表面消失。
+                    <br/>
+                    西元2007年，瑪麗．史懷哲（Mary Schweitzer）博士在恐龍骨骼中發現了軟組織，包括血細胞、血管和膠原蛋白等。根據測得的降解速率，即使將這些軟組織保存於溫度零度（暫不考慮恐龍生活的溫暖氣候），理論上這些組織也不可能存留幾千萬年？因此，恐龍真的是六千多萬年以前消失的古老生物嗎？瑪麗．史懷哲博士的發現令人充滿困惑與好奇！
+                    <br/>
+                    舊約聖經約伯記40章記載上帝要約伯去看一看、想一想，是誰造了這一個出現尾巴如香柏樹的動物(behemoth)，雖然中文聖經翻譯成「河馬」; 顯然，今日河馬的短尾與其相差甚遠，反觀古生物恐龍，倒是與這樣的描述較相似。事實上，我們也無法斷定這段聖經記載的動物(behemoth)就是恐龍，今日亦不見牠(behemoth)，而化石紀錄中的恐龍與約伯記的描述相近，讓人不禁好奇：約伯那時候曾經親眼見過恐龍嗎？
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(2)">石化原料是古生物變成的？</div>
+                <div class="between_blocks_words" id="under_science-2"></div>
+                <div class="words" id="under_science-2">
+                    談到恐龍與今日的關係，讓人聯想到大量且普遍使用的石化燃料。現今大多數人認為石油是由藻類及恐龍等古生物，長期埋在地裡經過高溫高壓而成，這就是所謂的生物成油理論。
+                    <br/>
+                    然而，人類使用石油卻已超過半個世紀，而每天有將近一億桶的石油原油產出。想想看，若是一隻恐龍經擠壓後能產生一、二桶原油，即或有上億隻恐龍曾經死在一起，但一年365天地球竟每天能持續產出近億桶原油，這實在令人匪夷所思！我們不得不懷疑石油的形成原因，且至今仍然是個謎。
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(3)" style="margin-bottom:60px">化石年齡遠超過聖經六日創造時間</div>
+                <div class="between_blocks_words" id="under_science-3" style="margin-top: -98px;"></div>
+                <div class="words" id="under_science-3" style="margin-bottom:60px">
+                    隨著大量化石被發現，放射性元素定年技術日益進步，現今大多數人相信地球年齡估測約為46億年；恐龍化石的年齡則在2.3億年到6500萬年前存在於地球。這樣的說法與聖經創世記第一章的六日創造，基本上差異不是很大嗎？
+                    <br/>
+                    我們在宇宙大爆炸的專章曾經討論過：聖經創世記中的「日 (yom)」，摩西以希伯來文撰寫的語言辭彙，除了有一天24小時的意思外，同時也有時代、年代等時間區段的意思。在創世記中因為第四「日」才造太陽、月亮，因而才有了一天24小時，聖經詮釋創造六日的時間，顯然是以六個時代較為相宜。
+                </div>                    
+            </div>
+            <div class="two_blocks middle_yellow">
+                <div class="science_and_bible">
+                    <img class="bible_img" src="../static/bible.png">
+                    聖經
+                </div>
+                <div class="how dark_yellow" onclick="how1(this)">怎麼說</div>
+                <div class="switch">
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)">化石依序地出現一如創造次序</div>
+                        <div class="between_blocks_words light_yellow"></div>
+                        <div class="words light_yellow">
+                            <p style="text-align:left;color: #B8BA51">地質年代表中的脊索動物門</p>
+                            科學家依地球曾經發生的重要地質事件作分界，劃分地球歷史時間，稱之為地質年代表（如附表）。我們在這個表中，特別將動物界的脊索動物門出現順序標記出來，從寒武紀開始的魚類、兩棲類、爬蟲類、鳥類和哺乳類等化石陸續出現，和創世記精簡的記載第五、六日陸續創造海、空、陸主要的動物做一個對比，竟然有極高的巧合。
+                            <p style="text-align:left;color: #B8BA51">上帝在第五、六日創造動物</p>
+                            我們看聖經創世記第一章時，上帝以二日有依序地創造海、空、陸各種生物，其順序與地質年代表中的脊索動物出現相當雷同。
+                            <br/>
+                            第五日：海— 首先創造(created)水中的魚類，繼而造水中活動生物。
+                            <br/>
+                            <a style="margin-left: 64px;">空— 造各種鳥類。</a>
+                            <br/>
+                            第六日：陸— 造昆蟲、爬蟲類、哺乳類等；最後創造 (created) 人。
+                            <br/>
+                            在這裡，我們觀察到不同地層中出現的生物化石，竟與3500年前摩西所寫下上帝創造動物的次序極相似，這實在令人訝異。
+                        </div>
+                    </div>
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)">化石突然地出現—寒武紀生命大爆發</div>
+                        <div class="between_blocks_words light_yellow"></div>
+                        <div class="words light_yellow">
+                            <p style="text-align:left;color: #B8BA51">大多種動物門突然出現</p>
+                            寒武紀在距今5.4億年前約有六千萬年期間，其沉積岩是最古老且含有豐富化石的地質地層；反觀更早且更低地質地層中，並沒有或甚少生物化石出現。化石證據指出主要動物的生命形式，突然在寒武紀出現在地層中，且同時在世界上不同生態系統的多個地點出現，如在加拿大伯吉斯頁岩所挖掘的化石，和在中國雲南澄江等地的大量化石出土均可見而非特例。
+                            <br/>
+                            生物學家把地球上出現過的動物界分類為40個動物門；其中34個是現存的，6個已經消失。而在地球歷史不到2%的寒武紀，其中竟然就有二十個動物門瞬間出現，這些不同動物門生命像變魔術式地突然冒出來，令生物學家費解。
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">難以解釋的演化歷程</p>
+                            生物科學課本提到演化生命樹的概念，不同物種生物逐漸演化出現且需要漫長的時間歷程。因此，在寒武紀地層中同時間大量出現的生物化石，一直是演化論學者的困惑，也是科學界仍在努力釐清的疑團；另一方面，不同類動物門的化石突然大量出現，瞬間呈現精彩生命的多元樣貌，這不就來自於聖經創世記上帝的「創造」？
+                            若是以聖經六日創造解釋，第四日才造太陽、月亮，「日」是24小時顯然不適用於前三日。因此，創造六日可以合宜地詮釋為六個創造時代，因此估算宇宙大爆炸至今138億年以及地球有46億年，與聖經沒有直接衝突。
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)">生物化石是上帝留下的創造證據</div>
+                        <div class="between_blocks_words light_yellow"></div>
+                        <div class="words light_yellow">
+                            <p style="text-align:left;color: #B8BA51">欠缺演化中間化石的證據</p>
+                            從達爾文時代開始，一般演化論學者認為始祖鳥是介於有羽毛恐龍和最早鳥類之間的過渡物種。但隨著比其更古老、構造上也更接近現生鳥類的近鳥龍、曉廷龍和曙光鳥等相繼被發現，始祖鳥在鳥類演化學上的地位已經動搖，被新的古生物鳥類取代，也未發現有演化到近似始祖鳥的其他半成品證據。
+                            <br/>
+                            <br/>
+                            演化是否從一種動物可以變異到另一種動物，或推論二者有共同祖先而各自而成新物種？因欠缺直接證據，演化論學者通常透過間接證據來支持其論說，對於中間化石的缺環或空白未有多討論，與現存百萬物種與化石出土數量相較，演化的中間化石證據顯得相當稀少。
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">生物各從其類，化石清楚分類</p>
+                            從過往至今的出土化石，其出現的方式型態可以說大部分是相對明確可分類的，沒有太多的參雜或混亂，正如聖經創造所採用的定律「各從其類」。
+                            <br/>
+                            生物遺傳學上在染色體、基因、DNA陸續發現後，發現許多鳥類有80條染色體，因而推測恐龍有相似的DNA與染色體。藉由分子生物學，相似動物可歸類為演化的一支，但在實證上，卻仍有許多未知。更不用說，迄今無證據指出演化可以實現在染色體不同的動物上。今天對於四十個動物門（已經消失6個），可以進行清楚的生物分類，是因為化石本身也是清楚地分類。雖然可以找到很多化石的骨骼相關性，但沒有疑問的，真實的生物從沒有演化成一團糨糊或是發現無法分類的生物體，多是可以清楚地分門別類。顯然地，「各從其類」是生物的過去、也是現在的實況，未來，相信應該也是可以如此明確區分不同的生物。
+                        </div>
+                    </div>
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)" style="margin-bottom:60px">上帝看一切創造的都甚好</div>
+                        <div class="between_blocks_words light_yellow" style="margin-top: -98px;"></div>
+                        <div class="words light_yellow" style="margin-bottom:60px">
+                            對於過去地球歷史的探索，除了繼續挖掘可能的證據外，我們必須承認人類的有限，歷史無法重新來過，去驗證生物學家的論述，只能憑科學推論的成果，試圖對於過去的生命出現方式一窺究竟。
+                            <br/>
+                            面對地球生物的多樣性，生命從無到有，且多種形態的動物化石，我們看見生物化石：(1)有的依次序出現，(2)有的突然出現，(3)過渡化石的實際證據極為稀少。綜合各方面訊息，在在都指向這一切與聖經創造記載是相合的。大量化石的出土，除了指出真實世界欠缺生物演化的半成品，反倒是從每個過去的化石、每個現有的生物，都看到是美好的成品。透過對歷史化石的重新審視，上帝創造萬物無疑提供了完整的答案。
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttom_imgs">
+            <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
+            <br>
+            <img class="arrow_icon" src="../static/arrow.png">
+        </div>
+    </body>
+
+    

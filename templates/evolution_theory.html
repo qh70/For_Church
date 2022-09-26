@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <title>演化論</title>
+        <style type="text/css"> 
+            * {box-sizing: border-box;}
+            body {background-color: #666666;}
+            .home_div {background-color: #666666;text-align: end;position: fixed;top: 0;left: 0;right:0;z-index: 2;}
+            .home_icon {width: 48px;height: 47px;margin-top: 10px;margin-right: 30px;cursor: pointer;}
+            h1 {margin-top: 101px;text-align: center;color: white;}
+            h2 {margin-top: 47px;text-align: center;color: white;}
+            .container {display: flex;justify-content: space-evenly;}
+            .two_blocks {
+                width: 465px;height:max-content;
+                margin: 20px;margin-top: 94px;
+                text-align: center;align-items:top;justify-content: center;
+                color: #FFFFFF;background-color: #AACCEC;
+                border-radius: 88px;
+            }
+            
+            .middle_yellow {background-color: #E0E27E;}
+
+            .science_and_bible {display: flex;margin: auto;margin-top: 83px;margin-bottom: 48px;font-size: 48px;font-weight: 400;justify-content: center;}
+            .science_img {width: 50px;height: 66px;margin-right: 20px;}
+            .bible_img {width: 92px;height: 66px;margin-right: 20px;}
+            .how {
+                width: 70%;height: 82px;line-height: 82px;
+                margin: auto;margin-bottom: 60px;
+                font-size: 32px;font-weight: 400;
+                background-color: #3696F0;
+                border-radius: 20px;
+            }
+            /* .switch {display: none;} */
+            .under_two_blocks {
+                display: none;
+                width: 85%;height: 58px;
+                margin: auto;margin-bottom: 0px;margin-bottom: 20px;
+                font-size: 1rem;line-height: 58px;
+                color: #FFFFFF;background-color: #3696F0;
+                border-radius: 20px;
+                z-index: 1;position: relative; /* 為了放在between_blocks_words上面 */
+            }
+
+            .dark_yellow {background-color: #B8BA51;}
+
+            .between_blocks_words{
+                display: none;
+                width: 85%;height: 40px;
+                margin: auto;margin-top: -58px;
+                background-color: #D8EBFE;
+                border-radius: 20px 20px 0px 0px;
+            }
+            .words {
+                display: none;
+                width: 85%;
+                margin: auto;margin-top: 0px;margin-bottom: 20px;
+                border-top: 600px;
+                padding: 15px;
+                text-align: start;
+                color: #000000;background-color: #D8EBFE;
+            }
+
+            .light_yellow {background-color: #FCFDC9;}
+
+            .show {display: block;}
+            .buttom_imgs {display: none;}
+            @media(max-width:600px){
+                .home_div {display: none;}
+                .container {display: block;}
+                .two_blocks {margin: auto;margin-top: 94px;padding: 20px;}
+                .buttom_imgs {display: block;margin-right: 30px;text-align: end;}
+                .home_icon {margin-top: 10px;margin-right: 0px;}
+                .arrow_icon {width: 48px;height: 30px;margin-top: 10px;}
+            }
+        </style>
+    </head>
+
+    <script type="text/javascript">
+        function go_to_index(){
+            document.location = "index.html";
+        }
+
+        function how(){
+            let under_science = document.querySelectorAll("#under_science");
+            let how1 = document.getElementById("how1");
+            how1.style.display = "none";
+            for(let i=0;i<under_science.length;i++){
+                under_science[i].style.display = "block"
+            }
+        }
+        
+        function under_science(number){
+            let blank_words = document.querySelectorAll("#under_science-"+number);
+            for(let j=0;j<blank_words.length;j++)
+            blank_words[j].classList.toggle("show");            
+        }
+        function fun(ob){
+            let obb=ob.parentNode
+        }
+        function how1(obj){
+            console.log(document.querySelector(".switch"))
+            obj.style.display="none"
+            let under_bible = document.querySelectorAll("#under_bible");
+            for(let k=0;k<under_bible.length;k++){
+                under_bible[k].style.display="block";
+            }
+        }
+        function under_bible(obj){
+            let childs = obj.parentNode.childNodes;
+            console.log(childs[1])
+            if(childs[3].style.display === "block"){
+                for(m=3;m<childs.length;m=m+2){
+                    childs[m].style.display = "none"
+                }
+            }
+            else{
+                for(n=3;n<childs.length;n=n+2){
+                    childs[n].style.display = "block"
+                }
+            }
+            
+        }
+    </script>
+    <body>
+        <div class="home_div">
+            <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
+        </div>
+        <h1>演化論述有實有虛</h1>
+        <h2>
+            從我們開始上學以後，自然科學老師及生物科學老師是這樣跟我們說的...
+            <br/>
+            這些都是真的嗎？怎麼跟我在聖經創世紀看的不一樣？這到底是怎麼一回事？
+        </h2>
+        <div class="container">
+            <div class="two_blocks">
+                <div class="science_and_bible">
+                    <img class="science_img" src="../static/sc.png">
+                    科學
+                </div>
+                <div class="how" onclick="how()" id="how1">怎麼說</div>
+                <div class="under_two_blocks" id="under_science"  onclick="under_science(1);fun(this)">達爾文的演化論</div>
+                <div class="between_blocks_words" id="under_science-1"></div>
+                <div class="words" id="under_science-1">
+                    生物學家為了探索生命來源與了解古今生物間的關係，經過長久討論及演化證據的蒐集，提出了各種論點來說明生物如何演變，而這些有關生物變異及演化的學說，稱為演化論。
+                    <br/>
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">物種變異、天擇及共同祖先論述</p>
+                    西元1831-1836年，達爾文在南美洲的島嶼群上觀察到今日稱為達爾文雀的為了生存，因應環境而變化出不同的嘴喙，為了可以吃到植物種子或捕食魚類等，因而發展出以「天擇」為主的演化學說。
+                    達爾文於1859年出版的《物種起源》前兩章探討了物種的變異，他認為變種為物種正在形成的過程，至於物種的邊界是模糊不清可跨越的。然而，達爾文也坦白地承認這世界的物種其時是清楚明確的，他認為這是因為天擇導致這些變異中的中間生物（過渡化石）被消滅；而這些中間變種生物存在的證據，則極少見的存在於殘缺及間歇的化石紀錄中。
+                    <br/>
+                    因此，達爾文提出了共同祖先源起的理論。他在其手札筆記所畫的生命演化樹中寫下「我想(I think)」，其從相似物種有共同祖先，逐步推論到不同物種間有共同祖先；這是達爾文思考跨物種間關係的大膽推論及假說，以期對於生物多樣性能找出發展起源。
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">同源器官的演化推論</p>
+                    <br/>
+                    演化論者最早以型態構造相似及所發現的生物化石去認定生物親緣關係，以支持物種演化的論述。解剖學為物種演化提供的重要證據，主要是生物間的同源器官與痕跡器官
+                    <br/>
+                    同源器官（homologous organ）指不同生物的某些器官在基本結構、各部分和生物體相互關係及胚胎發育的過程彼此相同，但在外形上有時不相似，功能上也有差別。
+                    <br/>
+                    演化論學者喜以同源器官來舉例說明：在不同種的生物間，來源相同、基本構造相同、胚胎發生相似的器官；以形態學 (morphology) 中現象為例，脊椎動物的前肢：如蝙蝠的翼手、鳥的翅膀(可飛)、鯨的胸鰭(可游)、狗的前肢(可跑)以及人的手臂(可寫)，雖然他們具有不同外形，功能也並不盡同，但卻有相同的基本結構，和動物身體的相對位置也相同；在胚胎發育上，從相同胚胎原以相似過程發育而來。
+                    <br/>
+                    這樣的說法突顯出演化論的核心精神，便是演化無法從頭再來，只是舊有構造的新適應。同源器官雖然外型可能類似，其實存在著不易被觀察到的關鍵差異。
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(2)">同物種演化事實</div>
+                <div class="between_blocks_words" id="under_science-2"></div>
+                <div class="words" id="under_science-2">
+                    <p style="text-align:left;color: #3696F0">基因、DNA會微幅改變</p>
+                    “演化是真的”這個說法有其存在的道理，但我們需要仔細分辨這個說法並不是”全部的真相”。
+                    <br/>
+                    透過達爾文實地觀測到的事實，我們知道鳥類嘴喙因應生存而變化，且因遷徙他地發展不出同族群的生殖隔離，這同一物種在外觀生理上的變異發展，的確是確實可觀察的。
+                    <br/>
+                    但是，從遺傳學裡的基因定序來看，因環境變化、或內外在刺激、及生殖繁衍，致使基因、DNA都會在繁衍過程中微幅改變，也就是同物種演化的發生是真實的；這就是一般所謂的微觀演化。
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">生物染色體數不變—各從其類</p>
+                    不論外觀、功能改變，或即使基因、DNA有變演化，世代繁衍交替中的生物的染色體數始終都維持不變；相同染色體數的物種，可透過基因性狀變異遺傳至下一個世代子嗣中，都是發生在相同染色體數目的同物種身上。這個生物事實與現象，與聖經創世紀中生物「各從其類」地滋生繁衍，正是不謀而合。
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(3)" style="margin-bottom:60px">跨物種演化推論</div>
+                <div class="between_blocks_words" id="under_science-3" style="margin-top: -98px;"></div>
+                <div class="words" id="under_science-3" style="margin-bottom:60px">
+                    <p style="text-align:left;color: #3696F0">演化可歸類，不等於生命可實現</p>
+                    隨著科技進步，遺傳學家發現不同種類的生物間有部分相同或類似基因，這就是專家所謂的生物親緣性，因而結合達爾文演化論與遺傳學、細胞學、分子生物學，系統分類學、古生物學等，發展出現代演化綜論，進行近一步的生物歸類間的關係探索。
+                    但是，不同物種染色體數目不同，並無法透過交配得到可持續繁衍後代的新物種，如馬(染色體64)驢(染色體62)雖交配生育騾(染色體63)，卻無法孕育繁殖下一代。並且，若正常生物的染色體數量有變化，則必然衍生遺傳疾病、畸形或提早夭折、無法生育等，致使其無法發揮生物體原有的正常功能。以人類來說，即使黑猩猩基因與人類有98.8% 相似，但人類染色體有46條染色體，與黑猩猩的48條，兩者迥然有別，完全無法跨越。因為，人的染色體多一條(47)或少一條(45)，就是嚴重的遺傳疾病，如唐氏症等。
+                    <br/>
+                    人類和黑猩猩、其他生物的DNA，彼此間有不同程度的相似性，但每種生物的染色體都是明確有別，使得物種演化的進行限制在同類動物的事實，讓染色體數目成為天然的演化屏障、難以跨越的限制，也保護各種生物的健康遺傳。
+                    <br/>
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">共同祖先，非自然繁衍，需外力</p>
+                    達爾文以演化生命樹的觀念來描述物種起源及生物的多樣性，進而假設生物不同物種間有其共同祖先，完成跨物種演化的推論機制。跨物種演化以共同祖先推論，雖然可以解釋突破生物間的染色體數屏障，以形成新的可生育繁殖的物種；但事實上，回到真實世界，這個推論過程除非有外力介入，否則是難以自然發生的。
+                    <p style="text-align:left;color: #3696F0">極缺演化半成品</p>
+                    如達爾文的主張，若物種與其變種間是連續性的漸進演化，那麼這世界的各種生物，在形態上的變化應該是一系列僅有細微連續差異的生物，而非實際所見物種和物種之間具有明確的區隔。換句話說，我們不就應該隨處可見數不清的生物以過渡形式呈現嗎？並且，各個地質地層中應該會看得到生物變異過程中充沛的「過渡化石」[1]出土；且各系列經過無數代演化的過渡化石，其種類及數量總和，理應遠遠超過現有生物的種類數量。
+                    <br/>
+                    事實上，我們只有看到相當稀少數量難以分類的過渡化石。古生物學家和考古學家累積發現了上億件的化石，卻鮮少看到介於二種類生物間的過渡化石；這種「化石缺環」（Missing Link，失落的環節[2]）現象是非常明顯的。為什麼整個自然生物界物種不是混在一起？這事實明確地告訴我們：中間過渡化石的證據不足。
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">寒武紀的演化困惑</p>
+                    在距今5.4億年前後約六千萬年期間，多種水生動物門突然出現在寒武紀地層；而在更早且更低地質地層中並沒有或甚少生物化石出現。其中大部分的生物外觀及功能都已經相當複雜且多元，而所有的生物樣貌，沒有一個是其他類型的始祖。因此，在寒武紀地層中同時間大量出現的生物化石，與演化論的生命樹能逐漸演化出不同類生物、且需要漫長時間歷程，是明顯不合的。這個事實難以解釋演化樹所需要的演化長時間，也因此，寒武紀生命大爆發雖然提出許多解釋，卻也一直是演化論學者的困惑。
+                </div>
+            </div>
+            <div class="two_blocks middle_yellow">
+                <div class="science_and_bible">
+                    <img class="bible_img" src="../static/bible.png">
+                    聖經
+                </div>
+                <div class="how dark_yellow" onclick="how1(this)">怎麼說</div>
+                <div class="switch">
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)" style="margin-bottom:60px">演化論的影響</div>
+                        <div class="between_blocks_words light_yellow" style="margin-top: -98px;"></div>
+                        <div class="words light_yellow" style="margin-bottom:60px">
+                            自達爾文十九世紀中葉提出演化論後，原本相信上帝創造世界及生物的人開始有不同的看法；我們看到一百多年後在美國受到演化論說影響的情況仍在持續增長中。
+                            <br/>
+                            在1983-2019年間，蓋洛普調查美國人對於人類起源和發展的看法，我們可以看到認同演化論(人類是幾百萬年前由低等生物發展出來，但是上帝不曾參與該歷程，結果呈現同意的人愈來愈多，增加13% (從9%增加到22%)；仍認同上帝創造現在人類的人數(灰色曲線)，降低11%。
+                            <br/>
+                            支持科學、演化、創造、無神、及有神等論者，他們的關係並非是絕對的。今日科學界相信演化論者比例高達97%，但相信演化論者並非就是無神論者。西元1916年調查生物、物理、數學家，40%相信有一位可以禱告且期待回答的神；1997年針對科學家的調查比例幾乎一樣。
+                            <br/>
+                            然而，主持美國國家衛生研究院12年(A.D. 2009-2021)的柯林斯(Francis Collins)卻透過科學面對信仰省斯，從一位無神論者變成基督徒，當他完成人類基因定序計畫時，他說：「我們首次窺見我們自己的說明書，而那原先只有上帝才知道的，那讓我更加謙卑和敬畏。」
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">演化論學者的信仰</p>
+                            近代演化論的代言人道金斯 (R. Dawkins) 認為「相信演化論，就一定得相信無神論。」事實上，演化論專家的信仰不完全都是無神論者，亦有不可知論者、及有神論者。
+                            <br/>
+                            對演化論有巨大貢獻的達爾文，當年在「物種源始」第六版的最後結語亦特別增寫到：「生命及其若干能力原來是由『造物主 the Creator』吹氣到少數形式或一個形式裡的。」因此，即使是公認的演化論創立者達爾文，也不是一個無神論者，至少可以說他是一位不可知論者。
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">你會再思新證據？</p>
+                            綜觀生物可以清楚分類，正是因為演化到一半的生物、化石極少見、甚至欠缺。在分類微觀方面，動物迄今已發現125萬種，每天仍不斷增加，不斷有新的發現、新的演化物種; 在宏觀方面，動物門有40個，6個已消失，迄今無新增，且在寒武紀短時間內大量出現。生物的滋生繁衍，演化論提供了科學上的解釋，而實際上有關生命的演化限制，卻往往被忽略了。
+                            <br/>
+                            若有今日基因遺傳的知識，既證實不同物種之間的基因、DNA有其相似性，也明白同物種無論如何演化，其染色體數維持不變。從「各從其類」的角度，可以直接得到科學與信仰的和諧。在150年後的今天，達爾文是否能再思演化論的範疇？教會今日也可以科學的角度回應聖經所說：「各從其類是真理，同物種演化是對的。」
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttom_imgs">
+            <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
+            <br>
+            <img class="arrow_icon" src="../static/arrow.png">
+        </div>
+    </body>
+
+    

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <title>生物遺傳</title>
+        <style type="text/css"> 
+            * {box-sizing: border-box;}
+            body {background-color: #90A2A7;}
+            .home_div {margin-top: 30px;margin-right: 30px;text-align: end;}
+            .home_icon {width: 48px;height: 47px;}
+            h1 {margin-top: 101px;text-align: center;color: white;}
+            h2 {margin-top: 47px;text-align: center;color: white;}
+            .container {display: flex;justify-content: space-evenly;}
+            .two_blocks {
+                width: 465px;height:max-content;
+                margin: 20px;margin-top: 94px;
+                text-align: center;align-items:top;justify-content: center;
+                color: #FFFFFF;background-color: #AACCEC;
+                border-radius: 88px;
+            }
+            
+            .middle_yellow {background-color: #E0E27E;}
+
+            .science_and_bible {display: flex;margin: auto;margin-top: 83px;margin-bottom: 48px;font-size: 48px;font-weight: 400;justify-content: center;}
+            .science_img {width: 50px;height: 66px;margin-right: 20px;}
+            .bible_img {width: 92px;height: 66px;margin-right: 20px;}
+            .how {
+                width: 70%;height: 82px;line-height: 82px;
+                margin: auto;margin-bottom: 60px;
+                font-size: 32px;font-weight: 400;
+                background-color: #3696F0;
+                border-radius: 20px;
+            }
+            /* .switch {display: none;} */
+            .under_two_blocks {
+                display: none;
+                width: 85%;height: 58px;
+                margin: auto;margin-bottom: 0px;margin-bottom: 20px;
+                font-size: 1rem;line-height: 58px;
+                color: #FFFFFF;background-color: #3696F0;
+                border-radius: 20px;
+                z-index: 1;position: relative; /* 為了放在between_blocks_words上面 */
+            }
+
+            .dark_yellow {background-color: #B8BA51;}
+
+            .between_blocks_words{
+                display: none;
+                width: 85%;height: 40px;
+                margin: auto;margin-top: -58px;
+                background-color: #D8EBFE;
+                border-radius: 20px 20px 0px 0px;
+            }
+            .words {
+                display: none;
+                width: 85%;
+                margin: auto;margin-top: 0px;margin-bottom: 20px;
+                border-top: 600px;
+                padding: 15px;
+                text-align: start;
+                color: #000000;background-color: #D8EBFE;
+            }
+
+            .light_yellow {background-color: #FCFDC9;}
+
+            .show {display: block;}
+            .buttom_imgs {display: none;}
+            @media(max-width:600px){
+                .home_div {display: none;}
+                .container {display: block;}
+                .two_blocks {margin: auto;margin-top: 94px;padding: 20px;}
+                .buttom_imgs {display: block;margin-right: 30px;text-align: end;}
+                .home_icon {margin-top: 10px;}
+                .arrow_icon {width: 48px;height: 47px;margin-top: 10px;}
+            }
+        </style>
+    </head>
+
+    <script type="text/javascript">
+        function how(){
+            let under_science = document.querySelectorAll("#under_science");
+            let two_blocks = document.querySelector(".two_blocks");
+            let how1 = document.getElementById("how1");
+            how1.style.display = "none";
+            for(let i=0;i<under_science.length;i++){
+                under_science[i].style.display = "block"
+            }
+        }
+        
+        function under_science(number){
+            let blank_words = document.querySelectorAll("#under_science-"+number);
+            for(let j=0;j<blank_words.length;j++)
+            blank_words[j].classList.toggle("show");            
+        }
+        function fun(ob){
+            let obb=ob.parentNode
+        }
+        function how1(obj){
+            console.log(document.querySelector(".switch"))
+            obj.style.display="none"
+            let under_bible = document.querySelectorAll("#under_bible");
+            for(let k=0;k<under_bible.length;k++){
+                under_bible[k].style.display="block";
+            }
+        }
+        function under_bible(obj){
+            let childs = obj.parentNode.childNodes;
+            console.log(childs[1])
+            if(childs[3].style.display === "block"){
+                for(m=3;m<childs.length;m=m+2){
+                    childs[m].style.display = "none"
+                }
+            }
+            else{
+                for(n=3;n<childs.length;n=n+2){
+                    childs[n].style.display = "block"
+                }
+            }
+            
+        }
+    </script>
+    <body>
+        <div class="home_div">
+            <img class="home_icon" src="../static/home.png" href="index.html">
+        </div>
+        <h1>基因與染色體</h1>
+        <h2>
+            DNA、基因、染色體，你知道多少？<br/>
+            相似與差異，那個才是重點？這深藏在細胞核裡的東西，竟然有這麼多的奧秘？
+        </h2>
+        <div class="container">
+            <div class="two_blocks">
+                <div class="science_and_bible">
+                    <img class="science_img" src="../static/sc.png">
+                    科學
+                </div>
+                <div class="how" onclick="how()" id="how1">怎麼說</div>
+                <div class="under_two_blocks" id="under_science"  onclick="under_science(1);fun(this)">自然界的生命密碼</div>
+                <div class="between_blocks_words" id="under_science-1"></div>
+                <div class="words" id="under_science-1">
+                    <p style="text-align:left;color: #3696F0">起初，神創造天地</p>
+                    西元1856-1863年間，捷克/奧地利天主教修士孟德爾透過豌豆雜交種植實驗，探討豌豆形狀特徵（乾扁或豐圓）背後所可能影響的因子。他觀察到豌豆下一代及第二子代的種子及植物特徵差異，進而發現世代遺傳中有「顯性」和「隱性」的不同性狀，這就是現在稱之為基因的最早發現。
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">生命的編碼訊息—染色體、基因、DNA</p>
+                    自十九世紀進入二十世紀，生物學家逐步了解細胞及探討生物如何將生命繁衍及運作的編碼訊息傳給下一個世代。
+                    <br/>
+                    染色體是真核生物特有的構造，主要由雙股螺旋的去氧核糖核酸和5種被稱為組蛋白的蛋白質構成，是基因的主要載體。基因，在生物學中是指「攜帶遺傳信息的基本單位」。自從確定遺傳信息的分子載體為核酸後，基因即指能夠遺傳且具功能性的一段DNA或RNA序列。
+                    <br/>
+                    人類細胞核中的23對染色體，人類基因體有三十一億對DNA鹼基，雖然有2-2.5萬個蛋白質編碼基因，但實際上只有1.5-2%真正用來給蛋白質編碼的。原本科學家以為從簡單生物體到複雜的人類，基因數目也是從少到多。但令人驚訝的是，其他簡單生物體如：蠕蟲、蒼蠅的基因數，也差不多是二萬個。[1]而地球上所有的生物，都擁有相同的生物遺傳密碼，這指出所有生物必然都有一個共同來源。因此，人們難免會問：
+                    <br/>
+                    <br/>
+                    <a style="text-align:left;color: #3696F0">從無到有：</a>比起奈米級半導體還要精密複雜的生物，生命遺傳訊息是如何在生物體建立起來的？
+                    <a style="text-align:left;color: #3696F0">生命來源：</a>不同生命是自然形成、來自同一個共同祖先？還是非自然外力介入、來自同一位的創造主？
+                    <br/>
+                    <p style="text-align:left;color: #3696F0">生命元素可以無中生有嗎—米勒尤里實驗</p>
+                    西元1953年，米勒與尤里在芝加哥大學實驗室模擬地球早期環境，以試圖創造生命物質的產生。在實驗中，他們將水（H2O）、甲烷（CH4）、氨（NH3）、氫氣（H2）與一氧化碳（CO）密封於無菌狀態下的玻璃管於燒瓶內，並將其連結形成一個迴路。裝置中的一個燒瓶裝著半滿的液態水，另一個則含有一對電極。首先將液態水加熱促使其蒸發，進而產生水蒸氣；而另一燒瓶的電極通電後會產生火花，以模擬閃電。水蒸氣經過電極之後，又再度凝結並重回原先裝水的燒瓶中，使實驗得以循環進行。
+                    <br/>
+                    經實驗後一週，觀察到其中10%~15% 碳以有機化合物形式存在，並有2% 氨基酸，可以構成核酸的原料，但可以形成DNA或RNA的左旋核酸並未出現。即使後來有許多科學家想進一步合成生命基本物質（即蛋白質與DNA），卻始終沒有成功。
+                    <br/>
+                    實驗四十多年後，米勒教授說：「生命起源的奧秘，原來比我和其他大部分人所估計的更難解開。」如果生命果真那麼容易誕生，誕生後有適當的環境存活，生命存活後有繁殖的機能，那生命就應該早已在地球上發生過許多次了！
+                </div>
+                <div class="under_two_blocks" id="under_science" onclick="under_science(2)" style="margin-bottom:60px">生物遺傳訊息的相似與關鍵差異</div>
+                <div class="between_blocks_words" id="under_science-2" style="margin-top: -98px;"></div>
+                <div class="words" id="under_science-2" style="margin-bottom:60px">
+                    <p style="text-align:left;color: #3696F0">染色體掌握生物繁衍界線</p>
+                    生物的遺傳訊息由於細胞內正常的化學反應，加之環境中的輻射和有毒物質的影響，如香煙、燒烤食品和工業廢物等，在正常的一天內，人類細胞內的DNA中可能會有一百萬個的鹼基被破壞改變，而遺傳基因也會隨之改變。
+                    <br/>
+                    但不同的是，同物種生物無論在演化或繁殖過程中，染色體數目始終是維持不變的。如：黑猩猩有48條染色體，人有46條染色體，都是明確有別。
+                    <br/>
+                    以人類為例，不同人種、性別，無論是在高山或於世隔絕的海島，古人或現代人，他們的DNA雖有不同，但相似性高達99.9%。因此，若要發現人與人之間關係的連結或差異，可以用DNA親子鑑定。但若要進行不同生物間的差異比對，染色體數即呈現明確的不同。
+                </div>
+            </div>
+            <div class="two_blocks middle_yellow">
+                <div class="science_and_bible">
+                    <img class="bible_img" src="../static/bible.png">
+                    聖經
+                </div>
+                <div class="how dark_yellow" onclick="how1(this)">怎麼說</div>
+                <div class="switch">
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)">同物種演化—僅限同染色體數?</div>
+                        <div class="between_blocks_words light_yellow"></div>
+                        <div class="words light_yellow">
+                            生物遺傳訊息(DNA)儲存在細胞核的染色體中，能確保生物持續繁衍相同物種的後代。因此，雖然生物基因會因環境刺激或生殖繁衍而改變，但物種染色體數卻是始終不會改變的。
+                            <br/>
+                            在某些特殊狀況下、可能發生基因序列突然變化或染色體數增減，但這樣的變化從生物成長或物種繁衍的角度來看也是有其限制的。如：二個不同物種交配生殖（如：馬與驢交配生下騾），通常這些與正常染色體數不同的生物，是無法繁殖後代的。
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">動物各有明確不同的染色體數</p>
+                            生物到目前為止有動物150萬種，植物約有45萬種，最多的染色體數的是一種稱為網眼蛇舌草的植物，估計有1440條。而大部分的哺乳類動物染色體都在100條以內，因此，有一些屬於不同類的動物卻永有相同的染色體數，如貓科的貓、獅、虎、豹，都是38條染色體。有一種中國小鹿「麂」和人一樣都是46條。至於鳥類，大部分是80條染色體。 相同染色體數的動物可能是屬於不同類，但不同染色體數的動物一定是不同類。如綿羊的染色體是54條，卻有2百多種的綿羊；山羊的是60條，亦有1百多種山羊；綿羊與山羊無法自然繁衍，兩種羊之間，可為涇渭分明、無從混雜。
+                            <br/>
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">染色體數變異與遺傳疾病</p>
+                            以正常人類46條染色體而言，與黑猩猩、大猩猩、紅毛猩猩都是染色體48條，雖然很相近，卻是明確有別。人類如果染色體數多了一條成為47條，主要的疾病就有：唐氏症、艾德華氏症、巴陶氏症、柯林菲特氏症等遺傳疾病。而少了一條成為45條，則成為透納氏症患者。染色體數稍有變化無論是增減一條，常常導致遺傳疾病發生，或是無法生育、或是嚴重影響健康早逝。因此，就現有所有的證據，無論生物如何演化改變，每一類正常生物的染色體是明確且固定的。而染色體的改變，無論是自然繁殖形成，或人工外力造成，生物卻往往是有病態或不能生育的。
+                            <br/>
+                            因此，演化實際上允許在同物種間發生，僅限同染色體數的物種，也是與聖經的創造生物定律—各從其類—是相合的。至於跨物種演化能突破染色體數限制，雖已廣為學校教科書採納，在科學界也是廣被接受，但就染色體數而言，只能說仍是一個科學推論，欠缺直接證據。
+                        </div>
+                    </div>
+                    <div>
+                        <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)" style="margin-bottom:60px">跨越世代的生命編碼訊息</div>
+                        <div class="between_blocks_words light_yellow" style="margin-top: -98px;"></div>
+                        <div class="words light_yellow" style="margin-bottom:60px">
+                            <p style="text-align:left;color: #B8BA51">不可言喻的生存語彙—蜜蜂搖擺舞</p>
+                            曾經獲得1973年諾貝爾醫學獎的奧地利動物行為學家卡爾・弗里施（Karl von Frisch）觀察蜜蜂飛行發現，蜜蜂會以搖擺舞與其他成員分享花蜜的確切位置，如：與太陽間的角度代表方向，並以搖擺繞圈的數量多寡表示距離長短。
+                            <br/>
+                            當我們仔細觀察蜜蜂搖擺舞，會看到一個小的八字形圖案（搖擺跑，又稱搖擺階段），然後向右轉圈回到起點（返回階段），再進行一次搖擺跑，然後轉身向左轉圈；依此類推，在搖擺跑及左右轉彎間規律交替。
+                            <br/>
+                            科學家透過觀察發現不同品種的蜜蜂擁有不同舞蹈的「語言」，每個品種或亞種舞蹈的弧度及時間都各有不同，這樣通過舞蹈交流傳遞社會信息是蜜蜂與生俱來的溝通能力，就刻畫在蜜蜂的遺傳基因裡。
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">神奇的最佳空間結構—蜂巢</p>
+                            仔細觀察蜜蜂的蜂巢，是由一個個正六角形單房組成，每個房室大小一致、上下左右距離相等，房房緊密相連；其由蜜蜂分泌的蠟製成，用於儲存蜂蜜、花粉和幼蟲。然而，令人好奇的是蜂窩為何以六邊形結構建造？
+                            <br/>
+                            除了對稱感外，蜂巢在節省蜜蜂勞動力和蜂蠟方面可說是完美至極。波蘭博學家 Jan Brożek (1585–1652)推測，以最小化邊界覆蓋具有相同區域的最佳方法就是使用六邊形結構。
+                            <br/>
+                            然而，這天生的神奇能力是怎麼來的呢？也就在蜜蜂與生俱來的生命編碼中。
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">不畏艱難的返鄉之路—鮭魚洄流</p>
+                            鮭魚洄流是鮭魚從深海洋游回到淡水河出生地的歷程，而這當中的過程讓人驚嘆。出生在加拿大內陸河床的鮭魚卵孵化成魚苗，存活下來的幼魚隔年春天，以就是半歲大時，會隨著河流入大海，若幸運地在北太平洋中成長為成魚，其體內荷爾蒙促使牠們開始一生最重要的使命，靠著本能三年半從大海迴游到出生地，每四年一個循環，出人意外的規律；通常牠們會以不可思議的精確度返回出生的河流、小溪、池塘，甚至躍過瀑布與急流一切攔阻，進入內陸河甚至長達五百公里之遠，只是為了回到當初出生的產卵地繁衍下一代，其堅毅與搜尋地點路徑的精準度，數年後仍是歷歷不忘，令人驚異。這若不是鮭魚體內設定的天命，他們如何完成這傳宗接代的艱難任務？
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">跨世代飛千里的旅程—帝王蝶遷徙</p>
+                            每年春天，百萬隻帝王斑蝶孵化，從墨西哥中部高原的杉樹林往北飛，歷經三代到達美、加邊境。每年秋天，這一代的百萬隻帝王斑蝶又從北美加拿大洛磯山脈，一路經過美國加州，穿越三千多公里，再降霜前到達三代前出生的墨西哥中部高原的杉樹林度過寒冬、並繁殖下一代。
+                            <br/>
+                            前幾代的蝴蝶從來都沒有到過越冬的地區，也沒有親屬領導他們前往，從蛹孵化下來就曉得往北飛，歷經三代再一口氣南飛回原始墨西哥棲息地；這當中必定有一種遺傳機制在調控這些蝴蝶的遷徙行為。
+                            <br/>
+                            神經生物學家們透過對帝王斑蝶的基因體進行解序來找這神奇的答案，發現帝王蝶擁有天生的羅盤系統，其大腦中有著控制新陳代謝功能和發出遷移信號的生物鐘等。
+                            <br/>
+                            <p style="text-align:left;color: #B8BA51">DNA—上帝顯示給人類的語言</p>
+                            看了這些大自然生物的絕妙行為，基因蘊藏著精密的世代遺傳訊息，令人歎為觀止。
+                            <br/>
+                            當美國「人類基因體計畫」於2003年完成時，計畫主持人柯林斯博士(Francis S. Collins)說：「當我首次窺見我們自己的說明書，那原先只有上帝才知道的，這讓我更加謙卑和敬畏。」[2]柯林斯博士相信人類基因圖譜是上帝給人類的生命語言。當他愈深入了解DNA的精密結構與複雜運作，愈理解到人類這樣的生命不可來自一個無心的偶然，一切條件剛剛好讓地球上的生物或人類出現，這個完美組合看起來就像是一種天意。
+                            <br/>
+                            上帝用話語創造世界，人類基因體序列則以DNA語言寫成。在每個生物的基因DNA都會微幅變動之際，獨留下染色體數目不改變，如同聖經創造的定律——各從其類——牢不可破，形成同物種演化的事實，將跨物種演化論說推到角落、扮演待釐清的角色。
+                            <br/>
+                            大自然的生物透過這生命編碼語言，以各從其類的方式滋生繁衍及生存發展，這一切豈不是令人讚嘆？
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttom_imgs">
+            <img class="home_icon" src="../static/home.png" href="index.html">
+            <br>
+            <img class="arrow_icon" src="../static/arrow.png">
+        </div>
+    </body>
+
+    
