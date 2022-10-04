@@ -83,6 +83,10 @@
             first_key.addEventListener("dragstart", drag_start1);
             first_key.addEventListener("dragend", drag_end);
 
+            // first_key listeners(mobile)
+            first_key.addEventListener("touchstart", drag_start1);
+            first_key.addEventListener("touchend", drag_end);
+
             // Loop through door boxes and add listeners
             for (const door_1 of doors_for_first_key){
                 door_1.addEventListener("dragover", drag_over);
