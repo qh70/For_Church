@@ -35,6 +35,11 @@
                 background: #f4f4f4;
                 border-style: dashed;
             }
+            .dot {
+                width: 4rem;height: 4rem;
+                position: absolute;
+                transform: translate(-50%, -50%);
+            }
             /* .hide_overflow_y{
                 overflow-y:inherit;
                 overflow-x:inherit;
@@ -105,22 +110,22 @@
         <div style="font-size: 20px;margin-top: 54px;text-align: center;">請任選一支鑰匙開啟</div>   
         <div class="container_for_keys">
             <div class="three_individual_container">
-                <img class="three_keys first_key" src="../static/key1.png" draggable="true">
+                <img class="three_keys first_key" id="keyId1" src="../static/key1.png" draggable="true">
                 <div>全人</div>
             </div>
             <div class="three_individual_container">
-                <img class="three_keys second_key" src="../static/key2.png" draggable="true">
+                <img class="three_keys second_key" id="keyId2" src="../static/key2.png" draggable="true">
                 <div>染色體數</div>
             </div>
             <div class="three_individual_container">
-                <img class="three_keys third_key" src="../static/key3.png" draggable="true">
+                <img class="three_keys third_key" id="keyId3" src="../static/key3.png" draggable="true">
                 <div>時間</div>
             </div>
 
         </div>  
         <script type="text/javascript">
             let key_situation;
-            let door_situation
+            let door_situation;
 
             const doors = document.querySelectorAll(".doors")
 
@@ -138,10 +143,6 @@
             // first_key listeners
             first_key.addEventListener("dragstart", drag_start1);
             first_key.addEventListener("dragend", drag_end);
-
-            // first_key listeners(mobile)
-            first_key.addEventListener("touchstart", drag_start1);
-            first_key.addEventListener("touchend", drag_end);
 
             // Drag Functions
             function drag_start1() {
@@ -230,6 +231,142 @@
                     location.href = "./ape.html"
                 }
             }
+            // mobile =============================================================================================================
+            let keyId1 = document.getElementById("keyId1");
+            let keyId2 = document.getElementById("keyId2");
+            let keyId3 = document.getElementById("keyId3");
+            // first_key listeners
+            first_key.addEventListener("touchstart", e => {
+                keyId1.style.display = "none";
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.createElement("img")
+                    dot.classList.add("dot")
+                    dot.style.top = `${touch.pageY}px`
+                    dot.style.left = `${touch.pageX}px`
+                    dot.id = touch.identifer1
+                    dot.src = "../static/key1.png"
+                    document.body.append(dot)
+                    key_situation = 1
+                })
+            })
+
+            first_key.addEventListener("touchmove", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifer1)
+                    dot.style.top = `${touch.pageY}px`
+                    dot.style.left = `${touch.pageX}px`
+                })
+            })
+
+            first_key.addEventListener("touchend", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifer1)
+                    dot.remove()
+                    keyId1.style.display = "block";
+                })
+            });
+
+            // second_key listeners
+            second_key.addEventListener("touchstart", e => {
+                keyId2.style.display = "none";
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.createElement("img")
+                    dot.classList.add("dot")
+                    dot.style.top = `${touch.pageY}px`
+                    dot.style.left = `${touch.pageX}px`
+                    dot.id = touch.identifer2
+                    dot.src = "../static/key2.png"
+                    document.body.append(dot)
+                    key_situation = 2
+                })
+            })
+
+            second_key.addEventListener("touchmove", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifer2)
+                    dot.style.top = `${touch.pageY}px`
+                    dot.style.left = `${touch.pageX}px`
+                })
+            })
+
+            second_key.addEventListener("touchend", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifer2)
+                    dot.remove()
+                    keyId2.style.display = "block";
+                })
+            });
+
+            // third_key listeners
+            third_key.addEventListener("touchstart", e => {
+                keyId3.style.display = "none";
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.createElement("img")
+                    dot.classList.add("dot")
+                    dot.style.top = `${touch.pageY}px`
+                    dot.style.left = `${touch.pageX}px`
+                    dot.id = touch.identifer3
+                    dot.src = "../static/key2.png"
+                    document.body.append(dot)
+                    key_situation = 3
+                })
+            })
+
+            third_key.addEventListener("touchmove", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifer3)
+                    dot.style.top = `${touch.pageY}px`
+                    dot.style.left = `${touch.pageX}px`
+                })
+            })
+
+            third_key.addEventListener("touchend", e => {
+                [...e.changedTouches].forEach(touch => {
+                    const dot = document.getElementById(touch.identifer3)
+                    dot.remove()
+                    keyId3.style.display = "block";
+                })
+            });
+
+            // Loop through door boxes and add listeners
+            for (const door of doors){
+                door.addEventListener("touchend", touch_end);
+            }
+
+            function touch_end(){
+                alert(1)
+                // 第一扇門通過
+                if(key_situation === 3 && this.className.includes("door_beginning_universe")){
+                    this.src = "../static/key3.png";
+                    location.href = "./beginning_universe.html"
+                }
+                // 第二扇門通過
+                else if(key_situation === 2 && this.className.includes("door_biological_genetics")){
+                    this.src = "../static/key2.png";
+                    location.href = "./biological_genetics.html"
+                }
+                // 第三扇門通過
+                else if(key_situation === 1 && this.className.includes("door_people_monkey")){
+                    this.src = "../static/key1.png";
+                    location.href = "./people_monkey.html"
+                }
+                // 第四扇門通過
+                else if(key_situation === 3 && this.className.includes("door_fossil")){
+                    this.src = "../static/key3.png";
+                    location.href = "./fossil.html"
+                }
+                // 第五扇門通過
+                else if(key_situation === 2 && this.className.includes("door_evolution_theory")){
+                    this.src = "../static/key2.png";
+                    location.href = "./evolution_theory.html"
+                }
+                // 第六扇門通過
+                else if(key_situation === 1 && this.className.includes("door_ape")){
+                    this.src = "../static/key1.png";
+                    location.href = "./ape.html"
+                }
+            }
+
         </script>
     </body>
 
