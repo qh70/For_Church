@@ -6,38 +6,39 @@
         <title>科學與創世紀</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <style type="text/css"> 
-            @media (max-width:1920px){
-                * {box-sizing: border-box;}
-                body {color: white;background-color: rgb(19, 123, 155);}
-                .h1 {margin-top: 101px;text-align: center;font-size: 36px;}
-                .h2 {margin-top: 20px;text-align: center;font-size: 20px;}
-                .h21 {display: none;}
-                .container {margin-top: 104px;display: flex;text-align: center;justify-content: center;box-sizing: border-box;}
-                .six_boxes {width: 134px;height: 230px;margin: 1%;object-fit:contain;}
-                .container_for_keys {
-                    display: flex;
-                    width: 425px;height: 104px;
-                    margin: auto;
-                    margin-top: 16px;
-                    text-align: center;
-                    justify-content: center;
-                }
-                .three_individual_container {
-                    width: 92px;
-                    margin-left: 74px;margin-right: 74px;
-                }
-                .three_keys {width: 92px;height: 104px;cursor: pointer;}
-                /* .doors_for_third_key {} */
-                .hold {border: solid 5px #ccc;}
-                .hovered {
-                    background: #f4f4f4;
-                    border-style: dashed;
-                }
-                .hide_overflow_y{
-                    overflow-y:hidden
-                }
+            * {box-sizing: border-box;}
+            body {
+                color: white;
+                background-image: url("../static/homepage.jpg");background-repeat: no-repeat;
+                background-attachment: fixed;background-size: 100% 100%;}
+            .h1 {margin-top: 101px;text-align: center;font-size: 36px;}
+            .h2 {margin-top: 20px;text-align: center;font-size: 20px;}
+            .h21 {display: none;}
+            .container {margin-top: 104px;display: flex;text-align: center;justify-content: center;box-sizing: border-box;}
+            .six_boxes {width: 134px;height: 230px;margin: 1%;object-fit:contain;}
+            .container_for_keys {
+                display: flex;
+                width: 425px;height: 104px;
+                margin: auto;
+                margin-top: 16px;
+                text-align: center;
+                justify-content: center;
             }
-
+            .three_individual_container {
+                width: 92px;
+                margin-left: 74px;margin-right: 74px;
+            }
+            .three_keys {width: 92px;height: 104px;cursor: pointer;}
+            /* .doors_for_third_key {} */
+            .hold {border: solid 5px #ccc;}
+            .hovered {
+                background: #f4f4f4;
+                border-style: dashed;
+            }
+            /* .hide_overflow_y{
+                overflow-y:inherit;
+                overflow-x:inherit;
+            } */
             /*=========================================================================================================================*/
             @media (max-width:900px){
                 h1 {margin-top: 73px;text-align: center;}
@@ -63,6 +64,9 @@
             
             /*=========================================================================================================================*/
             @media (max-width:600px){
+                body {
+                    background-size: 100% 100%;
+                }
                 h1 {margin-top: 73px;text-align: center;}
                 .h2 {display: none;margin-top: 20px;text-align: center;font-size: 20px;}
                 .h21 {display: block;}
@@ -118,63 +122,7 @@
             let key_situation;
             let door_situation
 
-            // 第一把鑰匙
-            const first_key = document.querySelector(".first_key");
-            const doors_for_first_key = document.querySelectorAll(".doors_for_first_key")
-
-            // first_key listeners
-            first_key.addEventListener("dragstart", drag_start1);
-            first_key.addEventListener("dragend", drag_end);
-
-            // first_key listeners(mobile)
-            first_key.addEventListener("touchstart", drag_start1);
-            first_key.addEventListener("touchend", drag_end);
-
-            // Loop through door boxes and add listeners
-            for (const door_1 of doors_for_first_key){
-                door_1.addEventListener("dragover", drag_over);
-                door_1.addEventListener("dragenter", drag_enter);
-                door_1.addEventListener("dragleave", drag_leave);
-                door_1.addEventListener("drop", drag_drop);
-            }
-
-            // Drag Functions
-            function drag_start1() {
-                document.body.classList.add("hide_overflow_y");
-                key_situation = 1;
-                setTimeout(() => (this.className = 'invisible'), 0);
-            }
-            
-            // 第二把鑰匙
-            const second_key = document.querySelector(".second_key");
-            const doors_for_second_key = document.querySelectorAll(".doors_for_second_key")
-
-            // second_key listeners
-            second_key.addEventListener("dragstart", drag_start2);
-            second_key.addEventListener("dragend", drag_end);
-
-            // Loop through door boxes and add listeners
-            for (const door of doors_for_second_key){
-                door.addEventListener("dragover", drag_over);
-                door.addEventListener("dragenter", drag_enter);
-                door.addEventListener("dragleave", drag_leave);
-                door.addEventListener("drop", drag_drop);
-            }
-
-            // Drag Functions
-            function drag_start2() {
-                document.body.classList.add("hide_overflow_y");
-                key_situation = 2;
-                setTimeout(() => (this.className = 'invisible'), 0);
-            }
-            
-            // 第三把鑰匙
-            const third_key = document.querySelector(".third_key");
             const doors = document.querySelectorAll(".doors")
-
-            // third_key listeners
-            third_key.addEventListener("dragstart", drag_start3);
-            third_key.addEventListener("dragend", drag_end);
 
             // Loop through door boxes and add listeners
             for (const door of doors){
@@ -184,15 +132,53 @@
                 door.addEventListener("drop", drag_drop);
             }
 
+            // 第一把鑰匙
+            const first_key = document.querySelector(".first_key");
+
+            // first_key listeners
+            first_key.addEventListener("dragstart", drag_start1);
+            first_key.addEventListener("dragend", drag_end);
+
+            // first_key listeners(mobile)
+            first_key.addEventListener("touchstart", drag_start1);
+            first_key.addEventListener("touchend", drag_end);
+
+            // Drag Functions
+            function drag_start1() {
+                // document.body.classList.add("hide_overflow_y");
+                key_situation = 1;
+                setTimeout(() => (this.className = 'invisible'), 0);
+            }
+            
+            // 第二把鑰匙
+            const second_key = document.querySelector(".second_key");
+
+            // second_key listeners
+            second_key.addEventListener("dragstart", drag_start2);
+            second_key.addEventListener("dragend", drag_end);
+
+            // Drag Functions
+            function drag_start2() {
+                key_situation = 2;
+                setTimeout(() => (this.className = 'invisible'), 0);
+            }
+            
+            // 第三把鑰匙
+            const third_key = document.querySelector(".third_key");
+
+            // third_key listeners
+            third_key.addEventListener("dragstart", drag_start3);
+            third_key.addEventListener("dragend", drag_end);
+
             // Drag Functions
             function drag_start3() {
-                document.body.classList.add("hide_overflow_y");
                 key_situation = 3
                 setTimeout(() => (this.className = 'invisible'), 0);
             }
 
             function drag_end() {
                 this.className = 'three_keys';
+                document.body.classList.remove("hide_overflow_y");
             }
 
             function drag_over(e) {
@@ -216,32 +202,32 @@
                 // 第一扇門通過
                 if(key_situation === 3 && this.className.includes("door_beginning_universe")){
                     this.src = "../static/key3.png";
-                    location.href = "/beginning_universe"
+                    location.href = "./beginning_universe.html"
                 }
                 // 第二扇門通過
                 else if(key_situation === 2 && this.className.includes("door_biological_genetics")){
                     this.src = "../static/key2.png";
-                    location.href = "/biological_genetics"
+                    location.href = "./biological_genetics.html"
                 }
                 // 第三扇門通過
                 else if(key_situation === 1 && this.className.includes("door_people_monkey")){
                     this.src = "../static/key1.png";
-                    location.href = "/people_monkey"
+                    location.href = "./people_monkey.html"
                 }
                 // 第四扇門通過
                 else if(key_situation === 3 && this.className.includes("door_fossil")){
                     this.src = "../static/key3.png";
-                    location.href = "/fossil"
+                    location.href = "./fossil.html"
                 }
                 // 第五扇門通過
                 else if(key_situation === 2 && this.className.includes("door_evolution_theory")){
                     this.src = "../static/key2.png";
-                    location.href = "/evolution_theory"
+                    location.href = "./evolution_theory.html"
                 }
                 // 第六扇門通過
                 else if(key_situation === 1 && this.className.includes("door_ape")){
                     this.src = "../static/key1.png";
-                    location.href = "/ape"
+                    location.href = "./ape.html"
                 }
             }
         </script>
