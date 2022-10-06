@@ -180,6 +180,7 @@
             function drag_end() {
                 this.className = 'three_keys';
                 document.body.classList.remove("hide_overflow_y");
+                eventPositiont();
             }
 
             function drag_over(e) {
@@ -366,6 +367,22 @@
                     location.href = "./ape.html"
                 }
             }
+
+            var eventPositiont = function(event){
+                let door_beginning_universe = document.getElementsByClassName("door_beginning_universe")[0];
+                // console.log(door_beginning_universe)
+
+                var x = window.event.clientX;
+                var y = window.event.clientY;
+                var divx1 = door_beginning_universe.offsetLeft;
+                var divy1 = door_beginning_universe.offsetTop;
+                var divx2 = door_beginning_universe.offsetLeft + door_beginning_universe.offsetWidthl
+                var divy2 = door_beginning_universe.offsetTop + door_beginning_universe.offsetHeight;
+                if(x < divx1 || x > divx2 || y < divx1 || y > divy2){
+                    alert("in")
+                }
+            }
+            
 
         </script>
     </body>
