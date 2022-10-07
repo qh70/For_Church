@@ -180,7 +180,6 @@
             function drag_end() {
                 this.className = 'three_keys';
                 document.body.classList.remove("hide_overflow_y");
-                eventPositiont();
             }
 
             function drag_over(e) {
@@ -336,8 +335,6 @@
             }
 
             function touch_end(){
-                alert(1);
-                eventPositiont();
                 // 第一扇門通過
                 if(key_situation === 3 && this.className.includes("door_beginning_universe")){
                     this.src = "../static/key3.png";
@@ -371,20 +368,17 @@
             }
 
             var eventPositiont = function(event){
+                // [...e.changedTouches]
                 let door_beginning_universe = document.getElementsByClassName("door_beginning_universe")[0];
-                // console.log(door_beginning_universe)
-                alert("before")
-                console.log(window.event)
-                console.log(window.event.touches[0])
-                console.log(window.event.clientX)
-                var x = window.event.touch.pageX;
-                alert(x)
-                var y = window.event.clientY;
+                var x = window.event.changedTouches[0].pageX;
+                var y = window.event.changedTouches[0].pageY;
+                console.log(x,y)
                 var divx1 = door_beginning_universe.offsetLeft;
                 var divy1 = door_beginning_universe.offsetTop;
-                var divx2 = door_beginning_universe.offsetLeft + door_beginning_universe.offsetWidthl
+                var divx2 = door_beginning_universe.offsetLeft + door_beginning_universe.offsetWidth;
                 var divy2 = door_beginning_universe.offsetTop + door_beginning_universe.offsetHeight;
-                if(x < divx1 || x > divx2 || y < divx1 || y > divy2){
+                console.log(divx1, divy1, divx2, divy2)
+                if(x >= divx1 && x <= divx2 && y >= divx1 && y <= divy2){
                     alert("in")
                 }
             }
