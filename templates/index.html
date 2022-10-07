@@ -172,8 +172,9 @@
             third_key.addEventListener("dragend", drag_end);
 
             // Drag Functions
-            function drag_start3() {
-                key_situation = 3
+            function drag_start3(e) {
+                e.preventDefault();
+                key_situation = 3;
                 setTimeout(() => (this.className = 'invisible'), 0);
             }
 
@@ -263,7 +264,7 @@
                     const dot = document.getElementById(touch.identifer1)
                     dot.remove()
                     keyId1.style.display = "block";
-                    eventPositiont();
+                    first_key_touchend();
                 })
             });
 
@@ -295,6 +296,7 @@
                     const dot = document.getElementById(touch.identifer2)
                     dot.remove()
                     keyId2.style.display = "block";
+                    second_key_touchend()
                 })
             });
 
@@ -326,6 +328,7 @@
                     const dot = document.getElementById(touch.identifer3)
                     dot.remove()
                     keyId3.style.display = "block";
+                    third_key_touchend()
                 })
             });
 
@@ -367,23 +370,78 @@
                 }
             }
 
-            var eventPositiont = function(event){
-                // [...e.changedTouches]
+            const first_key_touchend = function(event){
+                let door_people_monkey = document.getElementsByClassName("door_people_monkey")[0];
+                let door_ape = document.getElementsByClassName("door_ape")[0];
+                let x = window.event.changedTouches[0].pageX; // 手機拖曳的X座標
+                let y = window.event.changedTouches[0].pageY; // 手機拖曳的Y座標
+
+                const door_people_monkey_X1 = door_people_monkey.offsetLeft; // 左上角X座標
+                const door_people_monkey_Y1 = door_people_monkey.offsetTop; // 左上角Y座標
+                const door_people_monkey_X2 = door_people_monkey.offsetLeft + door_people_monkey.offsetWidth; // 右下角X座標
+                const door_people_monkey_Y2 = door_people_monkey.offsetTop + door_people_monkey.offsetHeight; // 右下角Y座標
+
+                const door_ape_X1 = door_ape.offsetLeft; // 左上角X座標
+                const door_ape_Y1 = door_ape.offsetTop; // 左上角Y座標
+                const door_ape_X2 = door_ape.offsetLeft + door_ape.offsetWidth; // 右下角X座標
+                const door_ape_Y2 = door_ape.offsetTop + door_ape.offsetHeight; // 右下角Y座標
+
+                if(x >= door_people_monkey_X1 && x <= door_people_monkey_X2 && y >= door_people_monkey_Y1 && y <= door_people_monkey_Y2){
+                    location.href = "./people_monkey.html"
+                }
+                else if(x >= door_ape_X1 && x <= door_ape_X2 && y >= door_ape_Y1 && y <= door_ape_Y2){
+                    location.href = "./ape.html"
+                }
+            }
+
+            const second_key_touchend = function(event){
+                let door_biological_genetics = document.getElementsByClassName("door_biological_genetics")[0];
+                let door_evolution_theory = document.getElementsByClassName("door_evolution_theory")[0];
+                let x = window.event.changedTouches[0].pageX; // 手機拖曳的X座標
+                let y = window.event.changedTouches[0].pageY; // 手機拖曳的Y座標
+
+                const door_biological_genetics_X1 = door_biological_genetics.offsetLeft; // 左上角X座標
+                const door_biological_genetics_Y1 = door_biological_genetics.offsetTop; // 左上角Y座標
+                const door_biological_genetics_X2 = door_biological_genetics.offsetLeft + door_biological_genetics.offsetWidth; // 右下角X座標
+                const door_biological_genetics_Y2 = door_biological_genetics.offsetTop + door_biological_genetics.offsetHeight; // 右下角Y座標
+
+                const door_evolution_theory_X1 = door_evolution_theory.offsetLeft; // 左上角X座標
+                const door_evolution_theory_Y1 = door_evolution_theory.offsetTop; // 左上角Y座標
+                const door_evolution_theory_X2 = door_evolution_theory.offsetLeft + door_evolution_theory.offsetWidth; // 右下角X座標
+                const door_evolution_theory_Y2 = door_evolution_theory.offsetTop + door_evolution_theory.offsetHeight; // 右下角Y座標
+
+                if(x >= door_biological_genetics_X1 && x <= door_biological_genetics_X2 && y >= door_biological_genetics_Y1 && y <= door_biological_genetics_Y2){
+                    location.href = "./biological_genetics.html"
+                }
+                else if(x >= door_evolution_theory_X1 && x <= door_evolution_theory_X2 && y >= door_evolution_theory_Y1 && y <= door_evolution_theory_Y2){
+                    location.href = "./evolution_theory.html"
+                }
+            }
+
+            const third_key_touchend = function(event){
                 let door_beginning_universe = document.getElementsByClassName("door_beginning_universe")[0];
-                var x = window.event.changedTouches[0].pageX;
-                var y = window.event.changedTouches[0].pageY;
-                console.log(x,y)
-                var divx1 = door_beginning_universe.offsetLeft;
-                var divy1 = door_beginning_universe.offsetTop;
-                var divx2 = door_beginning_universe.offsetLeft + door_beginning_universe.offsetWidth;
-                var divy2 = door_beginning_universe.offsetTop + door_beginning_universe.offsetHeight;
-                console.log(divx1, divy1, divx2, divy2)
-                if(x >= divx1 && x <= divx2 && y >= divx1 && y <= divy2){
-                    alert("in")
+                let door_fossil = document.getElementsByClassName("door_fossil")[0];
+                let x = window.event.changedTouches[0].pageX; // 手機拖曳的X座標
+                let y = window.event.changedTouches[0].pageY; // 手機拖曳的Y座標
+
+                const door_beginning_universe_X1 = door_beginning_universe.offsetLeft; // 左上角X座標
+                const door_beginning_universe_Y1 = door_beginning_universe.offsetTop; // 左上角Y座標
+                const door_beginning_universe_X2 = door_beginning_universe.offsetLeft + door_beginning_universe.offsetWidth; // 右下角X座標
+                const door_beginning_universe_Y2 = door_beginning_universe.offsetTop + door_beginning_universe.offsetHeight; // 右下角Y座標
+
+                const door_fossil_X1 = door_fossil.offsetLeft; // 左上角X座標
+                const door_fossil_Y1 = door_fossil.offsetTop; // 左上角Y座標
+                const door_fossil_X2 = door_fossil.offsetLeft + door_fossil.offsetWidth; // 右下角X座標
+                const door_fossil_Y2 = door_fossil.offsetTop + door_fossil.offsetHeight; // 右下角Y座標
+
+                if(x >= door_beginning_universe_X1 && x <= door_beginning_universe_X2 && y >= door_beginning_universe_Y1 && y <= door_beginning_universe_Y2){
+                    location.href = "./beginning_universe.html"
+                }
+                else if(x >= door_fossil_X1 && x <= door_fossil_X2 && y >= door_fossil_Y1 && y <= door_fossil_Y2){
+                    location.href = "./fossil.html"
                 }
             }
             
-
         </script>
     </body>
 
