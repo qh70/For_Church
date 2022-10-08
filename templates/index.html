@@ -172,9 +172,8 @@
             third_key.addEventListener("dragend", drag_end);
 
             // Drag Functions
-            function drag_start3(e) {
-                e.preventDefault();
-                key_situation = 3;
+            function drag_start3() {
+                key_situation = 3
                 setTimeout(() => (this.className = 'invisible'), 0);
             }
 
