@@ -66,7 +66,7 @@
             .light_yellow {background-color: #FCFDC9;}
 
             .show {display: block;}
-            .buttom_imgs {display: none;}
+            .button_imgs {display: none;}
             #up_arrow {
                 width: 20px;height: 20px;display: none;
             }
@@ -77,11 +77,15 @@
                 display: none;
                 color: #B8BA51;
             }
+
+            .pics {
+                width: 98%;height: 66%;
+            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
                 .two_blocks {width: 90%;margin: auto;margin-top: 94px;padding: 20px;}
-                .buttom_imgs {display: block;margin-right: 30px;text-align: end;}
+                .button_imgs {display: block;margin-right: 30px;text-align: end;}
                 .home_icon {margin-top: 10px;margin-right: 0px;}
                 .arrow_icon {width: 48px;height: 30px;margin-top: 10px;}
             }
@@ -200,6 +204,7 @@
                 <div class="words" id="under_science-4">
                     西元1931年，被稱為宇宙大爆炸之父勒梅特（Georges Lemaître）提出「太初原子」的宇宙模型，他認為宇宙起源於一個密度極高、體積極小的一個奇異點，他稱那個開始的時間是「沒有昨天的那一天」(The day without yesterday)。
                     而後，根據普朗克衛星於西元2013年更精密的觀測數據，推算出宇宙大爆炸係137.98 ± 0.37億年前開始的。
+                    <img class="pics" src="../static/圖宇1.png">
                 </div>
                 <div class="under_two_blocks" id="under_science" onclick="under_science(5)" style="margin-bottom:60px">宇宙微波背景輻射的發現</div>
                 <div class="between_blocks_words" id="under_science-5" style="margin-top: -98px;"></div>
@@ -286,7 +291,7 @@
                 </div>
             </div>
         </div>
-        <div class="buttom_imgs">
+        <div class="button_imgs">
             <img class="home_icon" src="../static/home.png" onclick=go_to_index()>
             <br>
             <img class="arrow_icon" src="../static/arrow.png" onclick=go_to_top()>
