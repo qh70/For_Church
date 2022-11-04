@@ -7,11 +7,23 @@
         <title>宇宙起源</title>
         <style type="text/css"> 
             * {box-sizing: border-box;}
-            body {background-color: #666666;}
-            .home_div {background-color: #666666;text-align: end;position: fixed;top: 0;left: 0;right:0;z-index: 2;}
+            body {
+                background-image: url("../static/01-宇宙-bg.jpg");background-repeat: no-repeat;
+                background-attachment: fixed;background-size: 100% 100%;
+            }
+            .home_div {
+                margin-top: 30px;
+                text-align: end;
+                position: fixed;top: 0;left: 0;right:0;z-index: 2;
+            }
             .home_icon {width: 48px;height: 47px;margin-top: 10px;margin-right: 30px;cursor: pointer;}
             h1 {margin-top: 101px;text-align: center;color: white;font-size: 48px;}
-            h2 {margin-top: 47px;text-align: center;color: white;font-size: 20px;}
+            h2 {
+                margin-top: 47px;margin-left: 42px;margin-right: 42px;
+                font-size: 20px;
+                text-align: center;
+                color: white;
+            }
             .container {display: flex;justify-content: space-evenly;}
             .two_blocks {
                 width: 465px;height:max-content;
@@ -27,7 +39,7 @@
             .science_img {width: 50px;height: 66px;margin-right: 20px;}
             .bible_img {width: 92px;height: 66px;margin-right: 20px;}
             .how {
-                width: 60%;height: 82px;line-height: 82px;
+                width: 90%;height: 82px;line-height: 82px;
                 margin: auto;margin-bottom: 60px;
                 font-size: 32px;font-weight: 400;
                 background-color: #3696F0;
@@ -36,7 +48,7 @@
             /* .switch {display: none;} */
             .under_two_blocks {
                 display: none;
-                width: 80%;height: 58px;
+                width: 90%;height: 58px;
                 margin: auto;margin-bottom: 0px;margin-bottom: 20px;
                 font-size: 20px;line-height: 58px;
                 color: #FFFFFF;background-color: #3696F0;
@@ -48,14 +60,14 @@
 
             .between_blocks_words{
                 display: none;
-                width: 80%;height: 40px;
+                width: 90%;height: 40px;
                 margin: auto;margin-top: -58px;
                 background-color: #D8EBFE;
                 border-radius: 20px 20px 0px 0px;
             }
             .words {
                 display: none;
-                width: 80%;
+                width: 90%;
                 margin: auto;margin-top: 0px;margin-bottom: 20px;
                 border-top: 600px;
                 padding: 15px;
@@ -77,12 +89,10 @@
             }
             .popup {
                 display: none;
+                width: 98%;height: 66%;
                 color: #B8BA51;
             }
 
-            .pics {
-                width: 98%;height: 66%;
-            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
@@ -133,7 +143,6 @@
         }
         function under_bible(obj){
             let childs = obj.parentNode.childNodes;
-            console.log(childs[1])
             if(childs[3].style.display === "block"){
                 for(m=3;m<childs.length;m=m+2){
                     childs[m].style.display = "none"
@@ -169,9 +178,13 @@
         </div>
         <h1>這個世界有個開始</h1>
         <h2>
-            生活在這地球上，每天享受陽光、空氣、水及無線上網，這些都是理所當然的嗎？
+            <span style="white-space:nowrap;">生活在這地球上，每天享受陽光、空氣、</span>
+            <span style="white-space:nowrap;">水及無線上網，</span>
+            <span style="white-space:nowrap;">這些都是理所當然的嗎？</span>
             <br/>
-            你有沒有好奇過... 我們所居住的這個世界是怎麼來的？這又是怎麼知道的？
+            <span style="white-space:nowrap;">你有沒有好奇過... </span>
+            <span style="white-space:nowrap;">我們所居住的這個世界是怎麼來的？</span>
+            <span style="white-space:nowrap;">這又是怎麼知道的？</span>
         </h2>
         <div class="container">
             <div class="two_blocks">
@@ -204,10 +217,12 @@
                 <div class="under_two_blocks" id="under_science" onclick="under_science(4)">科學可以證明宇宙有開始</div>
                 <div class="between_blocks_words" id="under_science-4"></div>
                 <div class="words" id="under_science-4">
-                    西元1931年，被稱為宇宙大爆炸之父勒梅特（Georges Lemaître）提出<a style="color: #B8BA51;">「太初原子」</a><i class="fa fa-angle-double-up" id="up_arrow" onclick="up_arrow_func()"></i><i class="fa fa-angle-double-down" id="down_arrow" onclick="down_arrow_func()"></i><p class="popup" id="text_1st">text</p>
+                    西元1931年，被稱為宇宙大爆炸之父勒梅特（Georges Lemaître）提出
+                    <a style="color: #B8BA51;">「太初原子」</a>
+                    <i class="fa fa-angle-double-up" id="up_arrow" onclick="up_arrow_func()"></i>
+                    <i class="fa fa-angle-double-down" id="down_arrow" onclick="down_arrow_func()"></i><img src="../static/圖宇1.png" class="popup" id="text_1st"/>
                     的宇宙模型，他認為宇宙起源於一個密度極高、體積極小的一個奇異點，他稱那個開始的時間是「沒有昨天的那一天」(The day without yesterday)。
                     而後，根據普朗克衛星於西元2013年更精密的觀測數據，推算出宇宙大爆炸係137.98 ± 0.37億年前開始的。
-                    <img class="pics" src="../static/圖宇1.png">
                 </div>
                 <div class="under_two_blocks" id="under_science" onclick="under_science(5)" style="margin-bottom:60px">宇宙微波背景輻射的發現</div>
                 <div class="between_blocks_words" id="under_science-5" style="margin-top: -98px;"></div>
