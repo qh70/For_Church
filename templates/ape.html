@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <title>猿人</title>
         <style type="text/css"> 
             * {box-sizing: border-box;}
@@ -79,6 +80,17 @@
 
             .show {display: block;}
             .buttom_imgs {display: none;}
+            .fa-angle-double-up {
+                width: 20px;height: 20px;display: none;
+            }
+            .fa-angle-double-down {
+                width: 20px;height: 20px;
+            }
+            .popup {
+                display: none;
+                width: 98%;height: 66%;
+                color: #E7C56C;
+            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
@@ -142,6 +154,24 @@
             }
             
         }
+        // popup效果
+        function up_arrow_func(number) { // 收起
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "none";
+            down_arrow.style.display = "inline-block";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "none";
+        }
+
+        function down_arrow_func(number) { // 展開
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "inline-block";
+            down_arrow.style.display = "none";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "block";
+        }
     </script>
     <body>
         <div class="home_div">
@@ -159,7 +189,11 @@
                 <div class="between_blocks_words" id="under_science-1"></div>
                 <div class="words" id="under_science-1">
                     <p style="font-weight:bold;text-align:left;color: #D14A3B">百萬年前的空谷足音</p>
-                    人類考古學家曾經在東非洲發現一處三百多萬年前二個人走過去的腳印(如右圖)，推估與當時(約350萬年前)的南方猿人有關，如所發現的露西(Lucy)就是有名的化石代表。
+                    人類考古學家曾經在東非洲發現一處三百多萬年前二個人走過去的腳印(
+                    <a style="color: #D14A3B;font-weight:bold">如圖</a>
+                    <i class="fa fa-angle-double-up" id="up_arrow-1" onclick="up_arrow_func(1)"></i>
+                    <i class="fa fa-angle-double-down" id="down_arrow-1" onclick="down_arrow_func(1)"></i><img src="../static/6-S-1.jpg" class="popup" id="text_1"/>
+                    )，推估與當時(約350萬年前)的南方猿人有關，如所發現的露西(Lucy)就是有名的化石代表。
                     <br/>
                     早期所發現的史前人類的實際骨骼估測身高大概是現在小孩的身高；根據該化石及腳印的研究，最重大的發現就是史前人類開始用二隻腳「直立行走」。而人類學認為史前人類延續到今日，稱現代人為智人(Homo sapiens)。
                     <br/>
@@ -177,6 +211,7 @@
                     <br/>
                     然而，史前人類和智人間的差異，不僅是在腦容量上，而是基因DNA與智慧文明的層面。
                     <br/>
+                    <img src="../static/6-S-2.png" style="display: block;" class="popup" id="text_2"/>
                     <br/>
                     <p style="font-weight:bold;text-align:left;color: #D14A3B">史前人類與現代人</p>
                     對生物演化學者來說：現代人是從史前人類演化而來的，而現代人在骨骼特徵上屬於二十萬年前出現的晚期智人，文化上則是近一萬年前屬於新石器時代及農業革命以後的人。
@@ -200,7 +235,11 @@
                     我們可以說，智人與史前人類在骨骼或腦容量方面或許是相似的，直到約二十萬年前出現智人種，即現今的人類。但在基因DNA方面上，智人明顯與史前人類是不同的。
                     <br/>
                     <br/>
-                    <p style="font-weight:bold;text-align:left;color: #D14A3B">智慧文明開展自一萬年前</p>
+                    <p style="font-weight:bold;text-align:left;color: #D14A3B">
+                        智慧文明開展自一萬年前
+                        <i class="fa fa-angle-double-up" id="up_arrow-3" onclick="up_arrow_func(3)"></i>
+                        <i class="fa fa-angle-double-down" id="down_arrow-3" onclick="down_arrow_func(3)"></i><img src="../static/6-S-3.png" class="popup" id="text_3"/>
+                    </p>
                     一個人不是只有身體，還有靈魂的部分。我們從人類考古與歷史文化來看，人類生活型態明顯與其他生物不同。若說史前人類最早可追溯自250萬年前舊石器時代開始，直到近約一萬年前進入新石器時代。人類獲取糧食的方式由原始的狩獵採集模式進入農耕畜牧生活，這凸顯了人類生活與智慧文化的躍進與升級。從時間長度來看，250萬年(前)與一萬年(前)相較，簡直就是瞬間跳躍模式。
                     <br/>
                     而近一萬年內的文明發展更是蓬勃，約五千年前多地同步發展出古文明，兩河流域蘇美文明、埃及古文明、印度古文明、黃河流域古文明等，而距今三千五百年前，更是有多位古人的高度智慧。如：摩西、釋迦牟尼、蘇格拉底、孔子等代表。

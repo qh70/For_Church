@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <title>演化論</title>
         <style type="text/css"> 
             * {box-sizing: border-box;}
@@ -80,6 +81,17 @@
 
             .show {display: block;}
             .buttom_imgs {display: none;}
+            .fa-angle-double-up {
+                width: 20px;height: 20px;display: none;
+            }
+            .fa-angle-double-down {
+                width: 20px;height: 20px;
+            }
+            .popup {
+                display: none;
+                width: 98%;height: 66%;
+                color: #E7C56C;
+            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
@@ -144,6 +156,24 @@
             }
             
         }
+        // popup效果
+        function up_arrow_func(number) { // 收起
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "none";
+            down_arrow.style.display = "inline-block";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "none";
+        }
+
+        function down_arrow_func(number) { // 展開
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "inline-block";
+            down_arrow.style.display = "none";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "block";
+        }
     </script>
     <body>
         <div class="home_div">
@@ -173,10 +203,18 @@
                     <br/>
                     <br/>
                     <p style="font-weight:bold;text-align:left;color: #E7C56C">物種變異、天擇及共同祖先論述</p>
-                    西元1831-1836年，達爾文在南美洲的島嶼群上觀察到今日稱為達爾文雀的為了生存，因應環境而變化出不同的嘴喙，為了可以吃到植物種子或捕食魚類等，因而發展出以「天擇」為主的演化學說。
+                    西元1831-1836年，
+                    <a style="color: #E7C56C;font-weight:bold">達爾文</a>
+                    <i class="fa fa-angle-double-up" id="up_arrow-1" onclick="up_arrow_func(1)"></i>
+                    <i class="fa fa-angle-double-down" id="down_arrow-1" onclick="down_arrow_func(1)"></i><img src="../static/5-S-1.jpg" class="popup" id="text_1"/>
+                    在南美洲的島嶼群上觀察到今日稱為達爾文雀的為了生存，因應環境而變化出不同的嘴喙，為了可以吃到植物種子或捕食魚類等，因而發展出以「天擇」為主的演化學說。
                     達爾文於1859年出版的《物種起源》前兩章探討了物種的變異，他認為變種為物種正在形成的過程，至於物種的邊界是模糊不清可跨越的。然而，達爾文也坦白地承認這世界的物種其時是清楚明確的，他認為這是因為天擇導致這些變異中的中間生物（過渡化石）被消滅；而這些中間變種生物存在的證據，則極少見的存在於殘缺及間歇的化石紀錄中。
                     <br/>
-                    因此，達爾文提出了共同祖先源起的理論。他在其手札筆記所畫的生命演化樹中寫下「我想(I think)」，其從相似物種有共同祖先，逐步推論到不同物種間有共同祖先；這是達爾文思考跨物種間關係的大膽推論及假說，以期對於生物多樣性能找出發展起源。
+                    因此，達爾文提出了共同祖先源起的理論。他在其手札筆記所畫的
+                    <a style="color: #E7C56C;font-weight:bold">生命演化樹</a>
+                    <i class="fa fa-angle-double-up" id="up_arrow-2" onclick="up_arrow_func(2)"></i>
+                    <i class="fa fa-angle-double-down" id="down_arrow-2" onclick="down_arrow_func(2)"></i><img src="../static/5-S-2.png" class="popup" id="text_2"/>
+                    中寫下「我想(I think)」，其從相似物種有共同祖先，逐步推論到不同物種間有共同祖先；這是達爾文思考跨物種間關係的大膽推論及假說，以期對於生物多樣性能找出發展起源。
                     <br/>
                     <p style="font-weight:bold;text-align:left;color: #E7C56C">同源器官的演化推論</p>
                     <br/>
@@ -191,7 +229,11 @@
                 <div class="under_two_blocks" id="under_science" onclick="under_science(2)">同物種演化事實</div>
                 <div class="between_blocks_words" id="under_science-2"></div>
                 <div class="words" id="under_science-2">
-                    <p style="font-weight:bold;text-align:left;color: #E7C56C">基因、DNA會微幅改變</p>
+                    <p style="font-weight:bold;text-align:left;color: #E7C56C">
+                        基因、DNA會微幅改變
+                        <i class="fa fa-angle-double-up" id="up_arrow-3" onclick="up_arrow_func(3)"></i>
+                        <i class="fa fa-angle-double-down" id="down_arrow-3" onclick="down_arrow_func(3)"></i><img src="../static/5-S-3.jpg" style="object-fit: cover;" class="popup" id="text_3"/>
+                    </p>
                     “演化是真的”這個說法有其存在的道理，但我們需要仔細分辨這個說法並不是”全部的真相”。
                     <br/>
                     透過達爾文實地觀測到的事實，我們知道鳥類嘴喙因應生存而變化，且因遷徙他地發展不出同族群的生殖隔離，這同一物種在外觀生理上的變異發展，的確是確實可觀察的。

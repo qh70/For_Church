@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <title>人與猿猴</title>
         <style type="text/css"> 
             * {box-sizing: border-box;}
@@ -80,6 +81,17 @@
 
             .show {display: block;}
             .buttom_imgs {display: none;}
+            .fa-angle-double-up {
+                width: 20px;height: 20px;display: none;
+            }
+            .fa-angle-double-down {
+                width: 20px;height: 20px;
+            }
+            .popup {
+                display: none;
+                width: 98%;height: 66%;
+                color: #E7C56C;
+            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
@@ -141,6 +153,24 @@
             }
             
         }
+        // popup效果
+        function up_arrow_func(number) { // 收起
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "none";
+            down_arrow.style.display = "inline-block";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "none";
+        }
+
+        function down_arrow_func(number) { // 展開
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "inline-block";
+            down_arrow.style.display = "none";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "block";
+        }
     </script>
     <body>
         <div class="home_div">
@@ -173,7 +203,11 @@
                 <div class="under_two_blocks" id="under_science" onclick="under_science(3)" style="margin-bottom:60px">人與猿猴的關鍵差異</div>
                 <div class="between_blocks_words" id="under_science-3" style="margin-top: -98px;"></div>
                 <div class="words" id="under_science-3" style="margin-bottom:60px">
-                    人類與黑猩猩的基因定序已於21世紀初完成。生物遺傳學家透過比較人類與黑猩猩的基因序列差異，發現人類獨有的基因DNA：大腦皮層皺摺、腦容量、語言發展、手指功能、消化澱粉與乳糖等相關基因，如圖。
+                    人類與黑猩猩的基因定序已於21世紀初完成。生物遺傳學家透過比較人類與黑猩猩的基因序列差異，發現人類獨有的基因DNA：大腦皮層皺摺、腦容量、語言發展、手指功能、消化澱粉與乳糖等相關基因，
+                    <a style="color: #D14A3B;font-weight:bold">如圖</a>
+                    <i class="fa fa-angle-double-up" id="up_arrow-1" onclick="up_arrow_func(1)"></i>
+                    <i class="fa fa-angle-double-down" id="down_arrow-1" onclick="down_arrow_func(1)"></i><img src="../static/3-S-1.png" class="popup" id="text_1"/>
+                    。
                     <br/>
                     人的語言發展基因明顯與黑猩猩、大猩猩、紅毛猩猩及恆河猴、老鼠的基因不一樣。這就是形塑人之所以成為人的關鍵基因之一，進而使人類發展出藝術、科學等社會文明，與黑猩猩等動物迥然有別。其中，基因改變的位置非常重要。如：在影響腦部表現的基因(HAR1)[2]，人類與黑猩猩有18個鹼基差異；而在大多數脊椎動物物種中，此部分差異卻沒有太大，如：黑猩猩與雞只有2個不同。人類腦容量明顯較大且大腦皮層皺褶特別多，因此人的心智思考活動活絡，表現明顯不同遠勝過動物，而這HAR1基因，就是與人類大腦皮層皺褶相關的基因。    
                     <br/>

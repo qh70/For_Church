@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <title>化石</title>
         <style type="text/css"> 
             * {box-sizing: border-box;}
@@ -80,6 +81,17 @@
 
             .show {display: block;}
             .buttom_imgs {display: none;}
+            .fa-angle-double-up {
+                width: 20px;height: 20px;display: none;
+            }
+            .fa-angle-double-down {
+                width: 20px;height: 20px;
+            }
+            .popup {
+                display: none;
+                width: 98%;height: 66%;
+                color: #E7C56C;
+            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
@@ -143,6 +155,24 @@
             }
             
         }
+        // popup效果
+        function up_arrow_func(number) { // 收起
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "none";
+            down_arrow.style.display = "inline-block";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "none";
+        }
+
+        function down_arrow_func(number) { // 展開
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "inline-block";
+            down_arrow.style.display = "none";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "block";
+        }
     </script>
     <body>
         <div class="home_div">
@@ -167,7 +197,11 @@
                 <div class="under_two_blocks" id="under_science"  onclick="under_science(1);fun(this)">從古老化石聯想到的問題</div>
                 <div class="between_blocks_words" id="under_science-1"></div>
                 <div class="words" id="under_science-1">
-                    <p style="font-weight:bold;text-align:left;color: #B4305C">恐龍活在六千多萬年前嗎？</p>
+                    <p style="font-weight:bold;text-align:left;color: #B4305C">
+                        恐龍活在六千多萬年前嗎？
+                        <i class="fa fa-angle-double-up" id="up_arrow-1" onclick="up_arrow_func(1)"></i>
+                        <i class="fa fa-angle-double-down" id="down_arrow-1" onclick="down_arrow_func(1)"></i><img src="../static/4-S-1.jpg" class="popup" id="text_1"/>
+                    </p>
                     自1822年，在英國曼徹斯特發現第一具恐龍化石後，引發了人們對於這巨大脊椎動物的興趣。科學研究關於恐龍在6500萬年前，已經從地球表面消失。
                     <br/>
                     西元2007年，瑪麗．史懷哲（Mary Schweitzer）博士在恐龍骨骼中發現了軟組織，包括血細胞、血管和膠原蛋白等。根據測得的降解速率，即使將這些軟組織保存於溫度零度（暫不考慮恐龍生活的溫暖氣候），理論上這些組織也不可能存留幾千萬年？因此，恐龍真的是六千多萬年以前消失的古老生物嗎？瑪麗．史懷哲博士的發現令人充滿困惑與好奇！
@@ -200,7 +234,11 @@
                         <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)">化石依序地出現一如創造次序</div>
                         <div class="between_blocks_words light_yellow"></div>
                         <div class="words light_yellow">
-                            <p style="font-weight:bold;text-align:left;color: #E69846">地質年代表中的脊索動物門</p>
+                            <p style="font-weight:bold;text-align:left;color: #E69846">
+                                地質年代表中的脊索動物門
+                                <i class="fa fa-angle-double-up" id="up_arrow-2" onclick="up_arrow_func(2)"></i>
+                            <i class="fa fa-angle-double-down" id="down_arrow-2" onclick="down_arrow_func(2)"></i><img src="../static/4-B-2.png" class="popup" id="text_2"/>
+                            </p>
                             科學家依地球曾經發生的重要地質事件作分界，劃分地球歷史時間，稱之為地質年代表（如附表）。我們在這個表中，特別將動物界的脊索動物門出現順序標記出來，從寒武紀開始的魚類、兩棲類、爬蟲類、鳥類和哺乳類等化石陸續出現，和創世記精簡的記載第五、六日陸續創造海、空、陸主要的動物做一個對比，竟然有極高的巧合。
                             <p style="font-weight:bold;text-align:left;color: #E69846">上帝在第五、六日創造動物</p>
                             我們看聖經創世記第一章時，上帝以二日有依序地創造海、空、陸各種生物，其順序與地質年代表中的脊索動物出現相當雷同。
@@ -240,6 +278,7 @@
                             <br/>
                             演化是否從一種動物可以變異到另一種動物，或推論二者有共同祖先而各自而成新物種？因欠缺直接證據，演化論學者通常透過間接證據來支持其論說，對於中間化石的缺環或空白未有多討論，與現存百萬物種與化石出土數量相較，演化的中間化石證據顯得相當稀少。
                             <br/>
+                            <img style="display: block;" src="../static/4-B-3.jpg" class="popup" id="text_3"/>
                             <p style="font-weight:bold;text-align:left;color: #E69846">生物各從其類，化石清楚分類</p>
                             從過往至今的出土化石，其出現的方式型態可以說大部分是相對明確可分類的，沒有太多的參雜或混亂，正如聖經創造所採用的定律「各從其類」。
                             <br/>

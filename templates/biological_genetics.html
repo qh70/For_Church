@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1"/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <title>生物遺傳</title>
         <style type="text/css"> 
             * {box-sizing: border-box;}
@@ -80,6 +81,17 @@
 
             .show {display: block;}
             .buttom_imgs {display: none;}
+            .fa-angle-double-up {
+                width: 20px;height: 20px;display: none;
+            }
+            .fa-angle-double-down {
+                width: 20px;height: 20px;
+            }
+            .popup {
+                display: none;
+                width: 98%;height: 66%;
+                color: #E7C56C;
+            }
             @media(max-width:600px){
                 .home_div {display: none;}
                 .container {display: block;}
@@ -144,6 +156,25 @@
             }
             
         }
+
+        // popup效果
+        function up_arrow_func(number) { // 收起
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "none";
+            down_arrow.style.display = "inline-block";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "none";
+        }
+
+        function down_arrow_func(number) { // 展開
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
+            up_arrow.style.display = "inline-block";
+            down_arrow.style.display = "none";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "block";
+        }
     </script>
     <body>
         <div class="home_div">
@@ -172,7 +203,14 @@
                     <p style="font-weight:bold;text-align:left;color: #E7C56C">起初，神創造天地</p>
                     西元1856-1863年間，捷克/奧地利天主教修士孟德爾透過豌豆雜交種植實驗，探討豌豆形狀特徵（乾扁或豐圓）背後所可能影響的因子。他觀察到豌豆下一代及第二子代的種子及植物特徵差異，進而發現世代遺傳中有「顯性」和「隱性」的不同性狀，這就是現在稱之為基因的最早發現。
                     <br/>
-                    <p style="font-weight:bold;text-align:left;color: #E7C56C">生命的編碼訊息—染色體、基因、DNA</p>
+                    <p style="font-weight:bold;text-align:left;color: #E7C56C">
+                        生命的編碼訊息—
+                        <span style="text-align:left;color: #E7C56C;font-weight:bold">
+                            染色體、基因、DNA
+                            <i class="fa fa-angle-double-up" id="up_arrow-1" onclick="up_arrow_func(1)"></i>
+                            <i class="fa fa-angle-double-down" id="down_arrow-1" onclick="down_arrow_func(1)"></i><img src="../static/2-S-1.jpg" class="popup" id="text_1"/>
+                        </span>
+                    </p>
                     自十九世紀進入二十世紀，生物學家逐步了解細胞及探討生物如何將生命繁衍及運作的編碼訊息傳給下一個世代。
                     <br/>
                     染色體是真核生物特有的構造，主要由雙股螺旋的去氧核糖核酸和5種被稱為組蛋白的蛋白質構成，是基因的主要載體。基因，在生物學中是指「攜帶遺傳信息的基本單位」。自從確定遺傳信息的分子載體為核酸後，基因即指能夠遺傳且具功能性的一段DNA或RNA序列。
@@ -193,7 +231,21 @@
                 <div class="under_two_blocks" id="under_science" onclick="under_science(2)" style="margin-bottom:60px">生物遺傳訊息的相似與關鍵差異</div>
                 <div class="between_blocks_words" id="under_science-2" style="margin-top: -98px;"></div>
                 <div class="words" id="under_science-2" style="margin-bottom:60px">
-                    <p style="font-weight:bold;text-align:left;color: #E7C56C">染色體掌握生物繁衍界線</p>
+                    <p style="font-weight:bold;text-align:left;color: #E7C56C">
+                        基因序列的相似性
+                        <i class="fa fa-angle-double-up" id="up_arrow-2" onclick="up_arrow_func(2)"></i>
+                        <i class="fa fa-angle-double-down" id="down_arrow-2" onclick="down_arrow_func(2)"></i><img src="../static/2-S-2.png" class="popup" id="text_2"/>
+                        
+                    </p>
+                    現在基因定序技術突飛猛進，除了細胞基本結構是相似的，而不同生物外表雖差異很大，而所承載的遺傳訊息，從相似共通的工具基因，到各具特色的關鍵差異基因，可以透過DNA基因定序清楚的呈現出來。
+                    <br/>
+                    綜觀不同生物的基因比對，其中特別是編碼蛋白質的基因序列（佔1.5%-2%），可以看到不同生物基因序列的不同相似性；而黑猩猩是現存生物中與人類最相近的物種，其基因相似度高達98.8%；人與黑猩猩卻仍明確有別。
+                    <br/>
+                    <p style="font-weight:bold;text-align:left;color: #E7C56C">
+                        染色體掌握生物繁衍界線
+                        <i class="fa fa-angle-double-up" id="up_arrow-3" onclick="up_arrow_func(3)"></i>
+                        <i class="fa fa-angle-double-down" id="down_arrow-3" onclick="down_arrow_func(3)"></i><img src="../static/2-S-3.png" class="popup" id="text_3"/>
+                    </p>
                     生物的遺傳訊息由於細胞內正常的化學反應，加之環境中的輻射和有毒物質的影響，如香煙、燒烤食品和工業廢物等，在正常的一天內，人類細胞內的DNA中可能會有一百萬個的鹼基被破壞改變，而遺傳基因也會隨之改變。
                     <br/>
                     但不同的是，同物種生物無論在演化或繁殖過程中，染色體數目始終是維持不變的。如：黑猩猩有48條染色體，人有46條染色體，都是明確有別。
@@ -231,21 +283,42 @@
                         <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)" style="margin-bottom:60px">跨越世代的生命編碼訊息</div>
                         <div class="between_blocks_words light_yellow" style="margin-top: -98px;"></div>
                         <div class="words light_yellow" style="margin-bottom:60px">
-                            <p style="font-weight:bold;text-align:left;color: #7FCACC">不可言喻的生存語彙—蜜蜂搖擺舞</p>
+                            <p style="font-weight:bold;text-align:left;color: #7FCACC">
+                                不可言喻的生存語彙—
+                                <span style="text-align:left;color: #7FCACC;font-weight:bold">
+                                    蜜蜂搖擺舞
+                                    <i class="fa fa-angle-double-up" id="up_arrow-4" onclick="up_arrow_func(4)"></i>
+                                    <i class="fa fa-angle-double-down" id="down_arrow-4" onclick="down_arrow_func(4)"></i><img src="../static/2-B-4.jpg" class="popup" id="text_4"/>
+                                </span>
+                            </p>
                             曾經獲得1973年諾貝爾醫學獎的奧地利動物行為學家卡爾・弗里施（Karl von Frisch）觀察蜜蜂飛行發現，蜜蜂會以搖擺舞與其他成員分享花蜜的確切位置，如：與太陽間的角度代表方向，並以搖擺繞圈的數量多寡表示距離長短。
                             <br/>
                             當我們仔細觀察蜜蜂搖擺舞，會看到一個小的八字形圖案（搖擺跑，又稱搖擺階段），然後向右轉圈回到起點（返回階段），再進行一次搖擺跑，然後轉身向左轉圈；依此類推，在搖擺跑及左右轉彎間規律交替。
                             <br/>
                             科學家透過觀察發現不同品種的蜜蜂擁有不同舞蹈的「語言」，每個品種或亞種舞蹈的弧度及時間都各有不同，這樣通過舞蹈交流傳遞社會信息是蜜蜂與生俱來的溝通能力，就刻畫在蜜蜂的遺傳基因裡。
                             <br/>
-                            <p style="font-weight:bold;text-align:left;color: #7FCACC">神奇的最佳空間結構—蜂巢</p>
+                            <p style="font-weight:bold;text-align:left;color: #7FCACC">
+                                神奇的最佳空間結構—
+                                <span style="text-align:left;color: #7FCACC;font-weight:bold">
+                                    蜂巢
+                                    <i class="fa fa-angle-double-up" id="up_arrow-5" onclick="up_arrow_func(5)"></i>
+                                    <i class="fa fa-angle-double-down" id="down_arrow-5" onclick="down_arrow_func(5)"></i><img src="../static/2-B-5.jpg" class="popup" id="text_5"/>
+                                </span>
+                            </p>
                             仔細觀察蜜蜂的蜂巢，是由一個個正六角形單房組成，每個房室大小一致、上下左右距離相等，房房緊密相連；其由蜜蜂分泌的蠟製成，用於儲存蜂蜜、花粉和幼蟲。然而，令人好奇的是蜂窩為何以六邊形結構建造？
                             <br/>
                             除了對稱感外，蜂巢在節省蜜蜂勞動力和蜂蠟方面可說是完美至極。波蘭博學家 Jan Brożek (1585–1652)推測，以最小化邊界覆蓋具有相同區域的最佳方法就是使用六邊形結構。
                             <br/>
                             然而，這天生的神奇能力是怎麼來的呢？也就在蜜蜂與生俱來的生命編碼中。
                             <br/>
-                            <p style="font-weight:bold;text-align:left;color: #7FCACC">不畏艱難的返鄉之路—鮭魚洄流</p>
+                            <p style="font-weight:bold;text-align:left;color: #7FCACC">
+                                不畏艱難的返鄉之路—
+                                <span style="text-align:left;color: #7FCACC;font-weight:bold">
+                                    鮭魚洄流
+                                    <i class="fa fa-angle-double-up" id="up_arrow-6" onclick="up_arrow_func(6)"></i>
+                                    <i class="fa fa-angle-double-down" id="down_arrow-6" onclick="down_arrow_func(6)"></i><img src="../static/2-B-6.jpg" class="popup" id="text_6"/>
+                                </span>
+                            </p>
                             鮭魚洄流是鮭魚從深海洋游回到淡水河出生地的歷程，而這當中的過程讓人驚嘆。出生在加拿大內陸河床的鮭魚卵孵化成魚苗，存活下來的幼魚隔年春天，以就是半歲大時，會隨著河流入大海，若幸運地在北太平洋中成長為成魚，其體內荷爾蒙促使牠們開始一生最重要的使命，靠著本能三年半從大海迴游到出生地，每四年一個循環，出人意外的規律；通常牠們會以不可思議的精確度返回出生的河流、小溪、池塘，甚至躍過瀑布與急流一切攔阻，進入內陸河甚至長達五百公里之遠，只是為了回到當初出生的產卵地繁衍下一代，其堅毅與搜尋地點路徑的精準度，數年後仍是歷歷不忘，令人驚異。這若不是鮭魚體內設定的天命，他們如何完成這傳宗接代的艱難任務？
                             <br/>
                             <p style="font-weight:bold;text-align:left;color: #7FCACC">跨世代飛千里的旅程—帝王蝶遷徙</p>

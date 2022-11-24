@@ -81,10 +81,10 @@
 
             .show {display: block;}
             .button_imgs {display: none;}
-            #up_arrow {
+            .fa-angle-double-up {
                 width: 20px;height: 20px;display: none;
             }
-            #down_arrow {
+            .fa-angle-double-down {
                 width: 20px;height: 20px;
             }
             .popup {
@@ -153,24 +153,27 @@
                     childs[n].style.display = "block"
                 }
             }
-            
         }
         // popup效果
-        function up_arrow_func() { // 收起
-            const up_arrow = document.getElementById("up_arrow");
-            const down_arrow = document.getElementById("down_arrow");
+        function up_arrow_func(number) { // 收起
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
             up_arrow.style.display = "none";
             down_arrow.style.display = "inline-block";
-            const text_1st = document.getElementById("text_1st");
-            text_1st.style.display = "none";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "none";
         }
 
-        function down_arrow_func() { // 展開
+        function down_arrow_func(number) { // 展開
+            const up_arrow = document.getElementById("up_arrow-"+number);
+            const down_arrow = document.getElementById("down_arrow-"+number);
             up_arrow.style.display = "inline-block";
             down_arrow.style.display = "none";
-            const text_1st = document.getElementById("text_1st");
-            text_1st.style.display = "block";
+            const text = document.getElementById("text_"+number);
+            text.style.display = "block";
         }
+
+        
     </script>
     <body>
         <div class="home_div">
@@ -218,9 +221,9 @@
                 <div class="between_blocks_words" id="under_science-4"></div>
                 <div class="words" id="under_science-4">
                     西元1931年，被稱為宇宙大爆炸之父勒梅特（Georges Lemaître）提出
-                    <a style="color: #B8BA51;font-weight:bold">「太初原子」</a>
-                    <i class="fa fa-angle-double-up" id="up_arrow" onclick="up_arrow_func()"></i>
-                    <i class="fa fa-angle-double-down" id="down_arrow" onclick="down_arrow_func()"></i><img src="../static/圖宇1.png" class="popup" id="text_1st"/>
+                    <a style="color: #B4305C;font-weight:bold">「太初原子」</a>
+                    <i class="fa fa-angle-double-up" id="up_arrow-1" onclick="up_arrow_func(1)"></i>
+                    <i class="fa fa-angle-double-down" id="down_arrow-1" onclick="down_arrow_func(1)"></i><img src="../static/圖宇1.png" class="popup" id="text_1"/>
                     的宇宙模型，他認為宇宙起源於一個密度極高、體積極小的一個奇異點，他稱那個開始的時間是「沒有昨天的那一天」(The day without yesterday)。
                     而後，根據普朗克衛星於西元2013年更精密的觀測數據，推算出宇宙大爆炸係137.98 ± 0.37億年前開始的。
                 </div>
@@ -271,14 +274,24 @@
                         <div class="under_two_blocks dark_yellow" id="under_bible" onclick="under_bible(this)">科學家故事另一章</div>
                         <div class="between_blocks_words light_yellow"></div>
                         <div class="words light_yellow">
-                            <p style="text-align:left;color: #B8BA51;font-weight:bold">科學界為過世的勒梅特翻案</p>
+                            <p style="text-align:left;color: #B8BA51;font-weight:bold">
+                                科學界為過世的
+                                <a style="color: #B8BA51;font-weight:bold">勒梅特翻案</a>
+                                <i class="fa fa-angle-double-up" id="up_arrow-2" onclick="up_arrow_func(2)"></i>
+                                <i class="fa fa-angle-double-down" id="down_arrow-2" onclick="down_arrow_func(2)"></i><img src="../static/1-B-2.jpg" class="popup" id="text_2"/>
+                            </p>
+                            
                             雖然，勒梅特是第一個在1927年結合相對論與天文觀測數據發表的宇宙膨脹研究成果，也是第一個在1931年提出宇宙起出源自一個極小的「太初原子」，被稱為「宇宙大爆炸之父」。
                             <br/>
                             但是，科學界長久以來將宇宙膨脹定律，稱為哈伯定律，膨脹係數稱為哈伯係數；因為是1929年哈伯廣為世界所認知的觀測結果，反倒第一個發現此結果的勒梅特，悄悄的在比利時魯汶大學度過教學人生。西元2018年10月 29日國際天文學會(IAU)歷經過去數次提案，終於通過將「哈伯定律」正式更名為「哈伯-勒梅特定律」。
                             <br/>
                             有趣的是「大爆炸之父是神父，神父之上有天父。」若對宇宙大爆炸的發現歷史做一個結論：神不偏待人！<br><br>
 
-                            <p style="text-align:left;color: #B8BA51;font-weight:bold">愛因斯坦也認錯</p>
+                            <p style="text-align:left;color: #B8BA51;font-weight:bold">
+                                愛因斯坦也認錯
+                                <i class="fa fa-angle-double-up" id="up_arrow-3" onclick="up_arrow_func(3)"></i>
+                                <i class="fa fa-angle-double-down" id="down_arrow-3" onclick="down_arrow_func(3)"></i><img src="../static/1-B-3.jpg" class="popup" id="text_3"/>
+                            </p>
                             科學貴在於不斷發現及修正錯誤，探討真相與原理。然而，科學家也是人，會發現現象背後的原理，也會犯錯。
                             <br/>
                             西元1927年，勒梅特把自己的論文拿給愛因斯坦過目，當時持有宇宙靜態論的愛因斯坦對他提出的宇宙膨脹論不以為然，還評論說：「你的數學計算無懈可擊，但是物理方面的觀點糟透了。」 (Your calculations are correct, but your grasp of physics is abominable.)
@@ -314,6 +327,10 @@
             <br>
             <img class="arrow_icon" src="../static/arrow.png" onclick=go_to_top()>
         </div>
+        <script type="text/javascript">
+
+            
+        </script>
     </body>
 
     
