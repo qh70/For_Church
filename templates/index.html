@@ -8,7 +8,6 @@
         <style type="text/css"> 
             * {box-sizing: border-box;}
             body {
-                padding-bottom: 150px;
                 color: white;
                 background-image: url("../static/homepage.jpg");background-repeat: no-repeat;
                 background-attachment: fixed;background-size: 100% 100%;
@@ -17,6 +16,7 @@
                 margin-top: 101px;
                 font-size: 64px;font-weight: 700;
                 text-align: center;
+                white-space:nowrap;
                 color: #FFB630;
             }
             .h2 {
@@ -95,6 +95,14 @@
                 position: absolute;
                 transform: translate(-50%, -50%);
             }
+            footer {
+                height: 56px;
+                line-height: 56px;
+                margin-top: 200px;margin-bottom: 0px;
+                padding-left: 30px;
+                font-size: 13px;font-weight: 400;
+                color: white;background-color: black;
+            }
             /* .hide_overflow_y{
                 overflow-y:inherit;
                 overflow-x:inherit;
@@ -128,7 +136,7 @@
                 }
                 .h1 {
                     margin-top: 73px;
-                    font-size: 53px;font-weight: 400;
+                    font-size: 47px;font-weight: 400;
                     text-align: center;}
                 .h2 {
                     font-size: 30px;font-weight: 400;
@@ -139,7 +147,7 @@
                     font-size: 25px;font-weight: 400;
                     text-align: center;
                 }
-                .h22 {font-size: 18px;}
+                .h22 {font-size: 15px;}
                 .container {width: 100%;max-width: 400px;;margin-top: 37px;text-align: center;justify-content: center;flex-wrap:wrap;}
                 .six_boxes {width: 28%;height: 142px;margin: 9px;margin-top: 9px;object-fit: contain;}
                 .container_for_keys {
@@ -159,7 +167,7 @@
                 .wordsUnderKeys {
                     width: 100%;
                     font-size: 1rem;font-weight: 700;
-                    text-align: right;
+                    text-align: center;
                 }
                 
                 .chineseUnderKeys {
@@ -172,8 +180,16 @@
                     transform: translate(-10px);
                 }
 
+                .evolutionLimits {
+                    margin-left: 5px;
+                }
+
                 .onlyHumanHaveConscience {
-                    margin-left: 0px;
+                    margin-left: 12px;
+                }
+                footer {
+                    padding-left: 0px;
+                    text-align: center;
                 }
             }
         </style>
@@ -206,7 +222,7 @@
             <div class="three_individual_container">
                 <img class="three_keys second_key" id="keyId2" src="../static/key2.png" draggable="true">
                 <div class="wordsUnderKeys" style="color:#D8B28F">Boundary</div>
-                <div class="chineseUnderKeys">
+                <div class="chineseUnderKeys evolutionLimits">
                     遺傳演化有<span style="color:#D8B28F">界限</span>
                 </div>
             </div>
@@ -434,7 +450,7 @@
 
             function touch_end(){
                 // 第一扇門通過
-                if(key_situation === 3 && this.className.includes("door_beginning_universe")){
+                if(key_situation === 1 && this.className.includes("door_beginning_universe")){
                     this.src = "../static/key3.png";
                     location.href = "./beginning_universe.html"
                 }
@@ -444,12 +460,12 @@
                     location.href = "./biological_genetics.html"
                 }
                 // 第三扇門通過
-                else if(key_situation === 1 && this.className.includes("door_people_monkey")){
+                else if(key_situation === 3 && this.className.includes("door_people_monkey")){
                     this.src = "../static/key1.png";
                     location.href = "./people_monkey.html"
                 }
                 // 第四扇門通過
-                else if(key_situation === 3 && this.className.includes("door_fossil")){
+                else if(key_situation === 1 && this.className.includes("door_fossil")){
                     this.src = "../static/key3.png";
                     location.href = "./fossil.html"
                 }
@@ -459,13 +475,13 @@
                     location.href = "./evolution_theory.html"
                 }
                 // 第六扇門通過
-                else if(key_situation === 1 && this.className.includes("door_ape")){
+                else if(key_situation === 3 && this.className.includes("door_ape")){
                     this.src = "../static/key1.png";
                     location.href = "./ape.html"
                 }
             }
 
-            const first_key_touchend = function(event){
+            const third_key_touchend = function(event){
                 let door_people_monkey = document.getElementsByClassName("door_people_monkey")[0];
                 let door_ape = document.getElementsByClassName("door_ape")[0];
                 let x = window.event.changedTouches[0].pageX; // 手機拖曳的X座標
@@ -513,7 +529,7 @@
                 }
             }
 
-            const third_key_touchend = function(event){
+            const first_key_touchend = function(event){
                 let door_beginning_universe = document.getElementsByClassName("door_beginning_universe")[0];
                 let door_fossil = document.getElementsByClassName("door_fossil")[0];
                 let x = window.event.changedTouches[0].pageX; // 手機拖曳的X座標
@@ -538,6 +554,9 @@
             }
             
         </script>
+        <footer>
+            若有任何相關問題請來信:navigatemeaning@gmail.com
+        </footer>
     </body>
 
     
