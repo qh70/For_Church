@@ -106,20 +106,33 @@
                 justify-content: space-between;
             }
 
+            .Email {
+                font-size: 1em;font-weight: 400;
+                margin-right: 0px;
+            }
+
             .threeButtonsInFooter {
+                width: 40%;
                 display: flex;
+                margin-right: 0px;
+                justify-items: flex-end;
             }
 
             .downloadLinks {
-                margin-bottom: 0px;
-                margin-right: 49px;
-                font-size: 13px;font-weight: 400;
-                background-color: red;
-                align-items: center;
+                height: 60%;
+                line-height: 23px;
+                margin: auto;
+                margin-right: 1%;
+                padding: 0.3rem;
+                padding-left: 0.8rem;padding-right: 0.8rem;
+                border: 1px solid white;
+                border-radius: 18px;
+                font-size: 0.5em;
+                white-space: nowrap;
             }
 
             .lastDownloadLinks {
-                margin-right: 54px;
+                margin-right: 5%;
             }
             /* .hide_overflow_y{
                 overflow-y:inherit;
@@ -145,6 +158,66 @@
                 .three_keys {
                     width: 92px;height: 104px;
                 }
+                footer {
+                    display: block;
+                    padding-top: 0px;
+                    padding-left: 0px;
+                    text-align: center;
+                    height: fit-content;
+                }
+                .Email {
+                    height: 30px;
+                    line-height: 40px;
+                    font-size: 1em;font-weight: 400;
+                    margin-right: 0px;
+                }
+                .threeButtonsInFooter {
+                    width: fit-content;height: fit-content;
+                    display: flex;
+                    margin-top: 0px;
+                    margin: auto;
+                    align-items: center;
+                }
+                .downloadLinks {
+                    height: 60%;
+                    line-height: 23px;
+                    margin: 10px;
+                    padding: 0.3rem;
+                    padding-left: 0.8rem;padding-right: 0.8rem;
+                    border: 1px solid white;
+                    border-radius: 18px;
+                    font-size: 0.5em;
+                    white-space: nowrap;
+                }
+                /* footer {
+                    display: flex;
+                    height: 56px;
+                    line-height: 56px;
+                    margin-top: 200px;
+                    padding-left: 5px;
+                    color: white;background-color: black;
+                    justify-content: space-between;
+                }
+                .Email {
+                    font-size: 0.8em;font-weight: 400;
+                    margin-left: 0px;
+                    background-color: green;
+                }
+                .threeButtonsInFooter {
+                    flex-grow: 1;
+                }
+                .downloadLinks {
+                    height: 60%;
+                    line-height: 23px;
+                    margin: auto;
+                    margin-right: 1%;
+                    padding: 0.3rem;
+                    padding-left: 0.8rem;padding-right: 0.8rem;
+                    border: 1px solid white;
+                    border-radius: 18px;
+                    font-size: 10px;
+                    white-space: nowrap;
+                } */
             }
             
             /*=========================================================================================================================*/
@@ -205,11 +278,10 @@
                 .onlyHumanHaveConscience {
                     margin-left: 12px;
                 }
-                footer {
-                    display: block;
-                    padding-left: 0px;
-                    text-align: center;
-                }
+                
+
+                /* .lastDownloadLinks {
+                } */
             }
         </style>
     </head>
@@ -574,11 +646,11 @@
             
         </script>
         <footer>
-            <div>若有任何相關問題請來信:navigatemeaning@gmail.com</div>
+            <div class="Email">若有任何相關問題請來信:navigatemeaning@gmail.com</div>
             <div class="threeButtonsInFooter">
-                <!-- <button class="downloadLinks">手冊1下載連結</button>
-                <button class="downloadLinks">手冊2下載連結</button>
-                <button class="downloadLinks lastDownloadLinks">一頁式網站連結</button> -->
+                <span class="downloadLinks">手冊1下載連結</span>
+                <span class="downloadLinks">手冊2下載連結</span>
+                <span class="downloadLinks lastDownloadLinks">一頁式網站連結</span>
             </div>
         </footer>
     </body>
