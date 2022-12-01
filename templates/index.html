@@ -115,14 +115,16 @@
                 width: 40%;
                 display: flex;
                 margin-right: 0px;
-                justify-items: flex-end;
+                justify-content: end;
+                
             }
 
             .downloadLinks {
                 height: 60%;
                 line-height: 23px;
                 margin: auto;
-                margin-right: 1%;
+                margin-left: 10px;
+                margin-right: 5px;
                 padding: 0.3rem;
                 padding-left: 0.8rem;padding-right: 0.8rem;
                 border: 1px solid white;
@@ -132,7 +134,7 @@
             }
 
             .lastDownloadLinks {
-                margin-right: 5%;
+                margin-right: 5px;
             }
             /* .hide_overflow_y{
                 overflow-y:inherit;
@@ -176,7 +178,7 @@
                     display: flex;
                     margin-top: 0px;
                     margin: auto;
-                    align-items: center;
+                    align-items: flex-end;
                 }
                 .downloadLinks {
                     height: 60%;
@@ -648,9 +650,9 @@
         <footer>
             <div class="Email">若有任何相關問題請來信:navigatemeaning@gmail.com</div>
             <div class="threeButtonsInFooter">
-                <span class="downloadLinks">手冊1下載連結</span>
-                <span class="downloadLinks">手冊2下載連結</span>
-                <span class="downloadLinks lastDownloadLinks">一頁式網站連結</span>
+                <div class="downloadLinks">手冊1下載連結</div>
+                <div class="downloadLinks">手冊2下載連結</div>
+                <div class="downloadLinks lastDownloadLinks">一頁式網站連結</div>
             </div>
         </footer>
     </body>
